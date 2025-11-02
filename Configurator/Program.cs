@@ -65,7 +65,7 @@ namespace Configurator
                 buildLogs.Text = $"{GetCurrentDate()}: Creating Game folder...";
                 progressBar.Value = 50;
 
-                await Task.Delay(1500);
+                await Task.Delay(1000);
 
                 //Copy game_files into the new "Game" folder
                 int availableFiles = Directory.GetFiles(path).Length, currentCopied = 0;
@@ -215,18 +215,18 @@ namespace Configurator
 
             try
             {
-                //Create the ProcessStartInfo element with UseShellExecute set to false, however this doesn't work.
+                //NOTE: Create the ProcessStartInfo element with UseShellExecute set to false, however this doesn't work.
                 var psi = new ProcessStartInfo
                 {
                     FileName = executablePath,
                     UseShellExecute = false
                 };
 
-                Process.Start(psi); //Start the Process
+                Process.Start(psi); 
             }
             catch (Win32Exception ex)
             {
-                //Catch the Win32Exception for non-base privilegies of Configurator App.
+                //NOTE: Catch the Win32Exception for non-base privilegies of Configurator App.
                 throw new ExecuteFailedException(ex);
             }
         }
