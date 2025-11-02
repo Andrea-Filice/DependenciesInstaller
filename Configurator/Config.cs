@@ -12,8 +12,6 @@ namespace Configurator
 {
     public partial class Config : Form
     {
-        //Event listeners
-
         public Config() {
             InitializeComponent();
             this.MaximizeBox = false;

@@ -94,7 +94,7 @@ namespace Configurator
             // 
             this.infoLabel.Font = new System.Drawing.Font("Clash Display Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoLabel.ForeColor = System.Drawing.Color.Red;
-            this.infoLabel.Location = new System.Drawing.Point(2, 358);
+            this.infoLabel.Location = new System.Drawing.Point(2, 371);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(799, 42);
             this.infoLabel.TabIndex = 4;
@@ -109,7 +109,7 @@ namespace Configurator
             this.buildButton.Enabled = false;
             this.buildButton.Font = new System.Drawing.Font("Clash Display Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buildButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buildButton.Location = new System.Drawing.Point(207, 307);
+            this.buildButton.Location = new System.Drawing.Point(207, 320);
             this.buildButton.Name = "buildButton";
             this.buildButton.Size = new System.Drawing.Size(374, 48);
             this.buildButton.TabIndex = 5;
@@ -135,7 +135,7 @@ namespace Configurator
             // progressBar
             // 
             this.progressBar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.progressBar.Location = new System.Drawing.Point(274, 289);
+            this.progressBar.Location = new System.Drawing.Point(274, 302);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(238, 12);
             this.progressBar.Step = 0;
@@ -167,7 +167,7 @@ namespace Configurator
             this.versionNumber.Name = "versionNumber";
             this.versionNumber.Size = new System.Drawing.Size(337, 19);
             this.versionNumber.TabIndex = 9;
-            this.versionNumber.Text = "Dependencies Installer v." + Application.ProductVersion;
+            this.versionNumber.Text = "";
             this.versionNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Config
@@ -195,6 +195,7 @@ namespace Configurator
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            this.versionNumber.Text = "Dependencies Installer v." + Application.ProductVersion;
         }
 
         //Components

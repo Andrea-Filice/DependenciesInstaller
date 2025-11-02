@@ -239,6 +239,12 @@ namespace Configurator
             executeButton.Visible = false;
             buildButton.Visible = true;
         }
-        public static string GetCurrentDate() {return $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}";}
+        public static string GetCurrentDate()
+        {
+            if(DateTime.Now.Second < 10)
+                return $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:0{DateTime.Now.Second}";
+            else
+                return $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}";
+        }
     }
 }
