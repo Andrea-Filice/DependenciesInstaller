@@ -70,7 +70,7 @@ namespace Configurator
                 //Copy game_files into the new "Game" folder
                 int availableFiles = Directory.GetFiles(path).Length, currentCopied = 0;
                 string[] files = Directory.GetFiles(path);
-                List<String> filesToMove = new List<string>();
+                List<string> filesToMove = new List<string>();
 
                 foreach (string file in files)
                 {

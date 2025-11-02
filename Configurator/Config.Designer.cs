@@ -41,6 +41,7 @@ namespace Configurator
             this.buildLogs = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.executeButton = new System.Windows.Forms.Button();
+            this.versionNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelStart
@@ -93,7 +94,7 @@ namespace Configurator
             // 
             this.infoLabel.Font = new System.Drawing.Font("Clash Display Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoLabel.ForeColor = System.Drawing.Color.Red;
-            this.infoLabel.Location = new System.Drawing.Point(2, 383);
+            this.infoLabel.Location = new System.Drawing.Point(2, 358);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(799, 42);
             this.infoLabel.TabIndex = 4;
@@ -108,7 +109,7 @@ namespace Configurator
             this.buildButton.Enabled = false;
             this.buildButton.Font = new System.Drawing.Font("Clash Display Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buildButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buildButton.Location = new System.Drawing.Point(204, 322);
+            this.buildButton.Location = new System.Drawing.Point(207, 307);
             this.buildButton.Name = "buildButton";
             this.buildButton.Size = new System.Drawing.Size(374, 48);
             this.buildButton.TabIndex = 5;
@@ -134,7 +135,7 @@ namespace Configurator
             // progressBar
             // 
             this.progressBar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.progressBar.Location = new System.Drawing.Point(274, 304);
+            this.progressBar.Location = new System.Drawing.Point(274, 289);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(238, 12);
             this.progressBar.Step = 0;
@@ -158,6 +159,17 @@ namespace Configurator
             this.executeButton.Visible = false;
             this.executeButton.Click += new System.EventHandler(this.executeButton_Click);
             // 
+            // versionNumber
+            // 
+            this.versionNumber.AutoSize = true;
+            this.versionNumber.Font = new System.Drawing.Font("Clash Display Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.versionNumber.Location = new System.Drawing.Point(244, 422);
+            this.versionNumber.Name = "versionNumber";
+            this.versionNumber.Size = new System.Drawing.Size(337, 19);
+            this.versionNumber.TabIndex = 9;
+            this.versionNumber.Text = "Dependencies Installer v." + Application.ProductVersion;
+            this.versionNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Config
             // 
             this.AllowDrop = true;
@@ -165,6 +177,7 @@ namespace Configurator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.versionNumber);
             this.Controls.Add(this.executeButton);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.buildLogs);
@@ -228,5 +241,6 @@ namespace Configurator
         private ProgressBar progressBar;
         private Button executeButton;
         internal Button buildButton;
+        private Label versionNumber;
     }
 }
