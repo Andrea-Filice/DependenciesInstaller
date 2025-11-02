@@ -127,6 +127,7 @@
   <ItemGroup>
     <None Include="Resources\addFolder.png" />
     <Content Include="src\images\addFolder.png" />
+    <Content Include="src\images\hammer.png" />
     <Content Include="tools.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
