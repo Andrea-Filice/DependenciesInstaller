@@ -233,7 +233,7 @@ namespace Configurator
 
         public static async Task ResetUI(Label logs, ProgressBar bar, Button executeButton, Button buildButton)
         {
-            await Task.Delay(5000);
+            await Task.Delay(3000);
             logs.Visible = false;
             bar.Visible = false;
             executeButton.Visible = false;
