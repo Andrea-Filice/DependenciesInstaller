@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
@@ -102,7 +103,9 @@ namespace Configurator
             // 
             // buildButton
             // 
-            this.buildButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buildButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buildButton.CausesValidation = false;
+            this.buildButton.Enabled = false;
             this.buildButton.Font = new System.Drawing.Font("Clash Display Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buildButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buildButton.Location = new System.Drawing.Point(204, 322);
@@ -157,8 +160,10 @@ namespace Configurator
             // 
             // Config
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.executeButton);
             this.Controls.Add(this.progressBar);
@@ -169,7 +174,7 @@ namespace Configurator
             this.Controls.Add(this.buttonChangeFolder);
             this.Controls.Add(this.gameFolder);
             this.Controls.Add(this.labelStart);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Config";
             this.Text = "Configurator";
@@ -202,18 +207,26 @@ namespace Configurator
                 folderSelected.AutoSize = false;
                 folderSelected.Width = 350;
                 folderSelected.Text = selectedPath;
+
+                buildButton.Enabled = true;
+                buildButton.BackColor = Color.Black;
+            }
+            else
+            {
+                buildButton.Enabled = false;
+                buildButton.BackColor = Color.Gray;
             }
         }
 
-        //Start build the app
+        //Start the build
         private async void StartBuilding() {await Program.BuildApplication(selectedPath, buildLogs, progressBar, buildButton, executeButton);}
 
         private void ExecuteProgram() {Program.Execute(selectedPath);}
 
         private Label infoLabel;
-        private Button buildButton;
         private Label buildLogs;
         private ProgressBar progressBar;
         private Button executeButton;
+        internal Button buildButton;
     }
 }

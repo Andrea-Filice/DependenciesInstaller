@@ -14,7 +14,11 @@ namespace Configurator
     {
         //Event listeners
 
-        public Config() {InitializeComponent();}
+        public Config() {
+            InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = true;
+        }
         private void Config_Load(object sender, EventArgs e) {Console.WriteLine($"{DateTime.Now}: Loading config files");}
         private void buttonChangeFolder_Click(object sender, EventArgs e) {OpenFolderBrowser();}
         private void buildButton_Click(object sender, EventArgs e) {StartBuilding();}
