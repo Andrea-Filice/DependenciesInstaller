@@ -18,6 +18,7 @@ namespace Configurator
     {
         public Config() {
             InitializeComponent();
+            Start();
             this.MaximizeBox = false;
             this.MinimizeBox = true;
         }

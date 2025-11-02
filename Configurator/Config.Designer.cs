@@ -176,9 +176,8 @@ namespace Configurator
             this.versionNumber.Font = new System.Drawing.Font("Clash Display Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.versionNumber.Location = new System.Drawing.Point(244, 422);
             this.versionNumber.Name = "versionNumber";
-            this.versionNumber.Size = new System.Drawing.Size(337, 19);
+            this.versionNumber.Size = new System.Drawing.Size(0, 19);
             this.versionNumber.TabIndex = 9;
-            this.versionNumber.Text = "Dependencies Installer v.";
             this.versionNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuBar
@@ -192,7 +191,7 @@ namespace Configurator
             this.helpToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(800, 28);
+            this.menuBar.Size = new System.Drawing.Size(800, 30);
             this.menuBar.TabIndex = 10;
             this.menuBar.Text = "menu";
             // 
@@ -202,7 +201,7 @@ namespace Configurator
             this.exitToolStripMenuItem,
             this.checkForUpdatesToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 26);
             this.toolStripMenuItem1.Text = "File";
             // 
             // exitToolStripMenuItem
@@ -225,20 +224,20 @@ namespace Configurator
             this.aboutToolStripMenuItem1,
             this.visitWebsiteToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(49, 26);
             this.aboutToolStripMenuItem.Text = "Info";
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(175, 26);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // visitWebsiteToolStripMenuItem
             // 
             this.visitWebsiteToolStripMenuItem.Name = "visitWebsiteToolStripMenuItem";
-            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
             this.visitWebsiteToolStripMenuItem.Text = "Visit website";
             this.visitWebsiteToolStripMenuItem.Click += new System.EventHandler(this.visitWebsiteToolStripMenuItem_Click);
             // 
@@ -248,20 +247,20 @@ namespace Configurator
             this.sendAFeedbackToolStripMenuItem,
             this.bugReportToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // sendAFeedbackToolStripMenuItem
             // 
             this.sendAFeedbackToolStripMenuItem.Name = "sendAFeedbackToolStripMenuItem";
-            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
             this.sendAFeedbackToolStripMenuItem.Text = "Send a Feedback";
             this.sendAFeedbackToolStripMenuItem.Click += new System.EventHandler(this.sendAFeedbackToolStripMenuItem_Click);
             // 
             // bugReportToolStripMenuItem
             // 
             this.bugReportToolStripMenuItem.Name = "bugReportToolStripMenuItem";
-            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
             this.bugReportToolStripMenuItem.Text = "Bug Report";
             this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
             // 
@@ -294,7 +293,6 @@ namespace Configurator
             this.ResumeLayout(false);
             this.PerformLayout();
 
-            this.versionNumber.Text = "Dependencies Installer v." + Application.ProductVersion;
         }
 
         //Components
@@ -352,5 +350,8 @@ namespace Configurator
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem sendAFeedbackToolStripMenuItem;
         private ToolStripMenuItem bugReportToolStripMenuItem;
+
+        //NOTE: Called within the InitializeComponents method
+        private void Start(){versionNumber.Text = "Dependencies Installer v. " + Application.ProductVersion;}
     }
 }
