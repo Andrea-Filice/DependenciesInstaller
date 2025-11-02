@@ -20,7 +20,7 @@ namespace Configurator
             Application.Run(new Config());
         }
 
-        public static async Task BuildApplication(string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton)
+        public static async Task BuildApplication(string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton, PictureBox image)
         {
             //Variables
             string baseFolderPath, gamePath;
@@ -96,7 +96,7 @@ namespace Configurator
                     try {File.Move(fileToMove, dstFile);}
                     catch (Exception ex)
                     {
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                         throw new BuildFailedException(buildLogs, ex);
                     }
                 }
@@ -127,7 +127,7 @@ namespace Configurator
                         }
                         catch (Exception ex)
                         {
-                            await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                            await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                             throw new BuildFailedException(buildLogs, ex);
                         }
                     }
@@ -147,7 +147,7 @@ namespace Configurator
                 {
                     if (File.Exists(destinationPath))
                     {
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                         throw new BuildFailedException(buildLogs, null);
                     }
                     else
@@ -155,7 +155,7 @@ namespace Configurator
                 }
                 catch (Exception ex)
                 {
-                    await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 80;
@@ -174,14 +174,14 @@ namespace Configurator
                         buildLogs.ForeColor = Color.Red;
                         buildLogs.AutoEllipsis = true;
                         buildLogs.Text = $"{GetCurrentDate()}: BUILD FAILED, Error: Installer.exe already exists.";
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     }
                     else 
                         File.Copy(batPersistentDirectory, Path.Combine(gamePath, "Install_EasyAntiCheat.bat"));
                 }
                 catch (Exception ex)
                 {
-                    await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 90;
@@ -204,7 +204,7 @@ namespace Configurator
                 buildLogs.Text = $"{GetCurrentDate()}: BUILD SUCCEEDED! (Time elapsed: {timeElapsedMinutes}:{timeElapsedSeconds})";
 
                 //Reset UI
-                await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
             }
         }
 
@@ -231,13 +231,15 @@ namespace Configurator
             }
         }
 
-        public static async Task ResetUI(Label logs, ProgressBar bar, Button executeButton, Button buildButton)
+        public static async Task ResetUI(Label logs, ProgressBar bar, Button executeButton, Button buildButton, PictureBox buildIcon)
         {
             await Task.Delay(3000);
             logs.Visible = false;
             bar.Visible = false;
             executeButton.Visible = false;
             buildButton.Visible = true;
+            buildButton.Enabled = true;
+            buildButton.BackColor = Color.Black;
         }
         public static string GetCurrentDate()
         {
