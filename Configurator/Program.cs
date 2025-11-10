@@ -20,7 +20,7 @@ namespace Configurator
             Application.Run(new Config());
         }
 
-        public static async Task BuildApplication(string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton)
+        public static async Task BuildApplication(string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton, PictureBox image)
         {
             //Variables
             string baseFolderPath, gamePath;
@@ -65,12 +65,12 @@ namespace Configurator
                 buildLogs.Text = $"{GetCurrentDate()}: Creating Game folder...";
                 progressBar.Value = 50;
 
-                await Task.Delay(1500);
+                await Task.Delay(1000);
 
                 //Copy game_files into the new "Game" folder
                 int availableFiles = Directory.GetFiles(path).Length, currentCopied = 0;
                 string[] files = Directory.GetFiles(path);
-                List<String> filesToMove = new List<string>();
+                List<string> filesToMove = new List<string>();
 
                 foreach (string file in files)
                 {
@@ -96,7 +96,7 @@ namespace Configurator
                     try {File.Move(fileToMove, dstFile);}
                     catch (Exception ex)
                     {
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                         throw new BuildFailedException(buildLogs, ex);
                     }
                 }
@@ -127,7 +127,7 @@ namespace Configurator
                         }
                         catch (Exception ex)
                         {
-                            await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                            await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                             throw new BuildFailedException(buildLogs, ex);
                         }
                     }
@@ -147,7 +147,7 @@ namespace Configurator
                 {
                     if (File.Exists(destinationPath))
                     {
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                         throw new BuildFailedException(buildLogs, null);
                     }
                     else
@@ -155,7 +155,7 @@ namespace Configurator
                 }
                 catch (Exception ex)
                 {
-                    await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 80;
@@ -174,14 +174,14 @@ namespace Configurator
                         buildLogs.ForeColor = Color.Red;
                         buildLogs.AutoEllipsis = true;
                         buildLogs.Text = $"{GetCurrentDate()}: BUILD FAILED, Error: Installer.exe already exists.";
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     }
                     else 
                         File.Copy(batPersistentDirectory, Path.Combine(gamePath, "Install_EasyAntiCheat.bat"));
                 }
                 catch (Exception ex)
                 {
-                    await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 90;
@@ -204,7 +204,7 @@ namespace Configurator
                 buildLogs.Text = $"{GetCurrentDate()}: BUILD SUCCEEDED! (Time elapsed: {timeElapsedMinutes}:{timeElapsedSeconds})";
 
                 //Reset UI
-                await ResetUI(buildLogs, progressBar, executeButton, baseButton);
+                await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
             }
         }
 
@@ -215,30 +215,35 @@ namespace Configurator
 
             try
             {
-                //Create the ProcessStartInfo element with UseShellExecute set to false, however this doesn't work.
+                //NOTE: Create the ProcessStartInfo element with UseShellExecute set to false, however this doesn't work.
                 var psi = new ProcessStartInfo
                 {
                     FileName = executablePath,
                     UseShellExecute = false
                 };
 
-                Process.Start(psi); //Start the Process
+                Process.Start(psi); 
             }
             catch (Win32Exception ex)
             {
-                //Catch the Win32Exception for non-base privilegies of Configurator App.
+                //NOTE: Catch the Win32Exception for non-base privilegies of Configurator App.
                 throw new ExecuteFailedException(ex);
             }
         }
 
-        public static async Task ResetUI(Label logs, ProgressBar bar, Button executeButton, Button buildButton)
+        public static async Task ResetUI(Label logs, ProgressBar bar, Button executeButton, Button buildButton, PictureBox buildIcon)
         {
-            await Task.Delay(5000);
+            await Task.Delay(3000);
             logs.Visible = false;
             bar.Visible = false;
             executeButton.Visible = false;
             buildButton.Visible = true;
+            buildButton.Enabled = true;
+            buildButton.BackColor = Color.Black;
         }
-        public static string GetCurrentDate() {return $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}";}
+        public static string GetCurrentDate()
+        {
+            return $"{(DateTime.Now.Hour < 10 ? "0" : "")}{DateTime.Now.Hour}:{(DateTime.Now.Minute < 10 ? "0" : "")}{DateTime.Now.Minute}:{(DateTime.Now.Second < 10 ? "0" : "")}{DateTime.Now.Second}";
+        }
     }
 }
