@@ -105,7 +105,7 @@ namespace Configurator
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(799, 42);
             this.infoLabel.TabIndex = 4;
-            this.infoLabel.Text = "Warning! This version uses the  \"898a1f5bc39850\" version of Easy \r\nAnti-Cheat, pl" +
+            this.infoLabel.Text = "Warning! This version uses the  \"da4a22a2247c38\" version of Easy \r\nAnti-Cheat, pl" +
     "ease activate this build before publishing this version.";
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -203,14 +203,14 @@ namespace Configurator
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "Check for Updates";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.checkForUpdatesToolStripMenuItem.Text = "Exit";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
@@ -226,14 +226,14 @@ namespace Configurator
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(175, 26);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // visitWebsiteToolStripMenuItem
             // 
             this.visitWebsiteToolStripMenuItem.Name = "visitWebsiteToolStripMenuItem";
-            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
+            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.visitWebsiteToolStripMenuItem.Text = "Visit website";
             this.visitWebsiteToolStripMenuItem.Click += new System.EventHandler(this.visitWebsiteToolStripMenuItem_Click);
             // 
@@ -249,14 +249,14 @@ namespace Configurator
             // sendAFeedbackToolStripMenuItem
             // 
             this.sendAFeedbackToolStripMenuItem.Name = "sendAFeedbackToolStripMenuItem";
-            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sendAFeedbackToolStripMenuItem.Text = "Send a Feedback";
             this.sendAFeedbackToolStripMenuItem.Click += new System.EventHandler(this.sendAFeedbackToolStripMenuItem_Click);
             // 
             // bugReportToolStripMenuItem
             // 
             this.bugReportToolStripMenuItem.Name = "bugReportToolStripMenuItem";
-            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bugReportToolStripMenuItem.Text = "Bug Report";
             this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
             // 
