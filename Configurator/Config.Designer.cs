@@ -7,18 +7,10 @@ namespace Configurator
 {
     partial class Config
     {
-        //Variables
+        //VARIABLES
         public string selectedPath = null;
-
-        /// <summary>
-        /// Variabile di progettazione necessaria.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Pulire le risorse in uso.
-        /// </summary>
-        /// <param name="disposing">ha valore true se le risorse gestite devono essere eliminate, false in caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -389,8 +381,10 @@ namespace Configurator
         private ToolStripMenuItem sendAFeedbackToolStripMenuItem;
         private ToolStripMenuItem bugReportToolStripMenuItem;
 
-        //NOTE: Called within the InitializeComponents method
-        private void Start(){versionNumber.Text = "Dependencies Installer v. " + Application.ProductVersion;}
+        private void Start() //NOTE: Called within the InitializeComponents method
+        {
+            versionNumber.Text = "Dependencies Installer v. " + Application.ProductVersion;
+        }
 
         private PictureBox iconAdd;
         private PictureBox buildIcon;
