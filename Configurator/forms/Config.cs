@@ -28,6 +28,7 @@ namespace Configurator
         private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://play-epik-incorporation.netlify.app/developers#dependenciesInstaller");}
         private void sendAFeedbackToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=question");}
         private void bugReportToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=bug");}
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e) { this.WindowState = FormWindowState.Minimized; }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -54,6 +55,11 @@ namespace Configurator
                 else
                     MessageBox.Show("You have the latest version available.", "Updater", MessageBoxButtons.OK);
             }
+        }
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("The application will restart to apply changes.", "Reload", MessageBoxButtons.OK);
+            this.Refresh();
         }
     }
 }
