@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Configurator.Exceptions
@@ -11,7 +7,7 @@ namespace Configurator.Exceptions
     {
         public ExecuteFailedException(Exception ex)
         {
-            MessageBox.Show($"An unknown error occured during the \"Test\" phase.\nError: {ex}", "Unknown Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"An unknown error occurred during the \"Test\" phase.\nError: {ex}", "Unknown Error Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

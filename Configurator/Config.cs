@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace Configurator
@@ -27,29 +19,14 @@ namespace Configurator
         private void buttonChangeFolder_Click(object sender, EventArgs e) {OpenFolderBrowser();}
         private void buildButton_Click(object sender, EventArgs e) {StartBuilding();}
         private void executeButton_Click(object sender, EventArgs e) {ExecuteProgram();}
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e) { using (var f = new Options()) { f.ShowDialog(); } }
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e) {using (var f = new Options()) {f.ShowDialog();}}
 
-        //NOTE: MENU ACTIONS
-        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e){Application.Exit();}
-        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e) { MessageBox.Show("Dependencies Installer (v. " + Application.ProductVersion + ").", "About Dependencies Installer", MessageBoxButtons.OK); }
-
-        private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ProcessStartInfo website = new ProcessStartInfo("https://play-epik-incorporation.netlify.app/developers#dependenciesInstaller");
-            Process.Start(website);
-        }
-
-        private void sendAFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ProcessStartInfo website = new ProcessStartInfo("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=question");
-            Process.Start(website);
-        }
-
-        private void bugReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ProcessStartInfo website = new ProcessStartInfo("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=bug");
-            Process.Start(website);
-        }
+        //NOTE: CONTEXT MENU ACTIONS
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e) {Application.Exit();}
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e) {MessageBox.Show("Dependencies Installer (v. " + Application.ProductVersion + ").", "About Dependencies Installer", MessageBoxButtons.OK);}
+        private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://play-epik-incorporation.netlify.app/developers#dependenciesInstaller");}
+        private void sendAFeedbackToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=question");}
+        private void bugReportToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=bug");}
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -69,12 +46,9 @@ namespace Configurator
 
                 if (result < 0)
                 {
-                    var message = MessageBox.Show("A new update is available! (v. " + latestVersion + "), do you want to update it?", "Updater", MessageBoxButtons.YesNo);
+                    var message = MessageBox.Show("A new update is available! (v. " + latestVersion + "), Do you want to update it?", "Updater", MessageBoxButtons.YesNo);
                     if(message == DialogResult.Yes)
-                    {
-                        ProcessStartInfo website = new ProcessStartInfo("https://github.com/Andrea-Filice/DependenciesInstaller/releases/latest");
-                        Process.Start(website);
-                    }
+                        Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/releases/latest");
                 }
                 else
                     MessageBox.Show("You have the latest version available.", "Updater", MessageBoxButtons.OK);

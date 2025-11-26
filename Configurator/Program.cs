@@ -34,8 +34,8 @@ namespace Configurator
             //Control if path == null
             if (path == null || path.Trim() == "")
             {
-                MessageBox.Show("Error during the build of Installer.exe, Error 404: Folder Not Found or Empty.", "Build Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                buildLogs.Text = $"{GetCurrentDate()}: ERROR 404, Folder not found.";
+                MessageBox.Show("Error during the build of Installer.exe. Error 404: Folder Not Found or Empty.", "Build Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                buildLogs.Text = $"{GetCurrentDate()}: ERROR 404: Folder not found.";
                 buildLogs.ForeColor = Color.Red;
             }
             else
@@ -61,7 +61,7 @@ namespace Configurator
                 if (!Directory.Exists(gamePath))
                     Directory.CreateDirectory(gamePath);
                 else
-                    MessageBox.Show($"A folder with the name of \"Game\" already exists, the program will copy files into that folder.", "Build Warn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"A folder with the name of \"Game\" already exists. The program will copy files into that folder.", "Build Warn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 buildLogs.Text = $"{GetCurrentDate()}: Creating Game folder...";
                 progressBar.Value = 50;
 
@@ -181,10 +181,10 @@ namespace Configurator
                 {
                     if (File.Exists(Path.Combine(gamePath, "Install_EasyAntiCheat.bat")) || File.Exists(Path.Combine(gamePath, "Install_EasyAntiCheat_old.bat")))
                     {
-                        MessageBox.Show($"An error occurred during the build and now is canceled, Error: Installer.exe already exists.", "Build Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"An error occurred during the build and now is canceled. Error: Installer.exe already exists.", "Build Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         buildLogs.ForeColor = Color.Red;
                         buildLogs.AutoEllipsis = true;
-                        buildLogs.Text = $"{GetCurrentDate()}: BUILD FAILED, Error: Installer.exe already exists.";
+                        buildLogs.Text = $"{GetCurrentDate()}: BUILD FAILED! Error: Installer.exe already exists.";
                         await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     }
                     else

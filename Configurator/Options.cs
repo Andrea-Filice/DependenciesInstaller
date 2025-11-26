@@ -32,7 +32,8 @@ namespace Configurator
             }
             catch (ConfigurationErrorsException ex)
             {
-                throw new ErrorGeneratedException(ex); //NOTE: THROW THE EXCEPTION WITH AN UI MESSAGE.
+                //NOTE: THROW THE EXCEPTION WITH AN UI MESSAGE.
+                throw new ErrorGeneratedException(ex);
             }
         }
 

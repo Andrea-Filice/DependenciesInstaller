@@ -341,7 +341,7 @@ namespace Configurator
         public void OpenFolderBrowser()
         {
             //Adding depscription to dialog
-            browserDialog.Description = "Select the Game Folder of your game for continue.";
+            browserDialog.Description = "Select the Game Folder of your game to continue.";
 
             //Get if dialog is closed and get the Folder Selected
             if(browserDialog.ShowDialog() == DialogResult.OK)
@@ -400,9 +400,7 @@ namespace Configurator
             {
                 f.ReadValues();
                 if(f.selectOnStart.Checked)
-                {
                     OpenFolderBrowser();
-                }
             }
         }
 
