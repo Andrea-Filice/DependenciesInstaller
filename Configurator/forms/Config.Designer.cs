@@ -188,7 +188,7 @@ namespace Configurator
             this.helpToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(800, 30);
+            this.menuBar.Size = new System.Drawing.Size(800, 28);
             this.menuBar.TabIndex = 10;
             this.menuBar.Text = "menu";
             // 
