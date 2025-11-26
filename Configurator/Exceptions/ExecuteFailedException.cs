@@ -11,7 +11,7 @@ namespace Configurator.Exceptions
     {
         public ExecuteFailedException(Exception ex)
         {
-            MessageBox.Show($"An unknown error occured during the \"Test\" phase, Error: {ex}", "Unknown Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"An unknown error occured during the \"Test\" phase.\nError: {ex}", "Unknown Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

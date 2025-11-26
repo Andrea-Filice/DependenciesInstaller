@@ -37,6 +37,7 @@ namespace Configurator
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,14 +100,14 @@ namespace Configurator
             // 
             // infoLabel
             // 
-            this.infoLabel.Font = new System.Drawing.Font("Clash Display Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoLabel.Font = new System.Drawing.Font("Clash Display Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoLabel.ForeColor = System.Drawing.Color.Red;
-            this.infoLabel.Location = new System.Drawing.Point(2, 371);
+            this.infoLabel.Location = new System.Drawing.Point(38, 371);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(799, 42);
+            this.infoLabel.Size = new System.Drawing.Size(726, 42);
             this.infoLabel.TabIndex = 4;
-            this.infoLabel.Text = "Warning! This version uses the  \"da4a22a2247c38\" version of Easy \r\nAnti-Cheat, pl" +
-    "ease activate this build before publishing this version.";
+            this.infoLabel.Text = "Check the supported versions of Easy Anti-Cheat by going to “File” > “Options” an" +
+    "d select one (RECOMMENDED: The latest version is already selected by default).";
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buildButton
@@ -187,7 +188,7 @@ namespace Configurator
             this.helpToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(800, 28);
+            this.menuBar.Size = new System.Drawing.Size(800, 30);
             this.menuBar.TabIndex = 10;
             this.menuBar.Text = "menu";
             // 
@@ -195,6 +196,7 @@ namespace Configurator
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem,
+            this.optionsToolStripMenuItem,
             this.checkForUpdatesToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
@@ -203,14 +205,21 @@ namespace Configurator
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.exitToolStripMenuItem.Text = "Check for Updates";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.checkForUpdatesToolStripMenuItem.Text = "Exit";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
@@ -226,14 +235,14 @@ namespace Configurator
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(175, 26);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // visitWebsiteToolStripMenuItem
             // 
             this.visitWebsiteToolStripMenuItem.Name = "visitWebsiteToolStripMenuItem";
-            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
             this.visitWebsiteToolStripMenuItem.Text = "Visit website";
             this.visitWebsiteToolStripMenuItem.Click += new System.EventHandler(this.visitWebsiteToolStripMenuItem_Click);
             // 
@@ -249,14 +258,14 @@ namespace Configurator
             // sendAFeedbackToolStripMenuItem
             // 
             this.sendAFeedbackToolStripMenuItem.Name = "sendAFeedbackToolStripMenuItem";
-            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
             this.sendAFeedbackToolStripMenuItem.Text = "Send a Feedback";
             this.sendAFeedbackToolStripMenuItem.Click += new System.EventHandler(this.sendAFeedbackToolStripMenuItem_Click);
             // 
             // bugReportToolStripMenuItem
             // 
             this.bugReportToolStripMenuItem.Name = "bugReportToolStripMenuItem";
-            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
             this.bugReportToolStripMenuItem.Text = "Bug Report";
             this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
             // 
@@ -311,6 +320,7 @@ namespace Configurator
             this.Name = "Config";
             this.Text = "Configurator";
             this.Load += new System.EventHandler(this.Config_Load);
+            this.Shown += new System.EventHandler(this.Config_Shown);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconAdd)).EndInit();
@@ -328,7 +338,7 @@ namespace Configurator
         private System.Windows.Forms.Label folderSelected;
 
         //Open dialog box for choose the actual folder
-        private void OpenFolderBrowser()
+        public void OpenFolderBrowser()
         {
             //Adding depscription to dialog
             browserDialog.Description = "Select the Game Folder of your game for continue.";
@@ -384,9 +394,20 @@ namespace Configurator
         private void Start() //NOTE: Called within the InitializeComponents method
         {
             versionNumber.Text = "Dependencies Installer v. " + Application.ProductVersion;
+
+            //NOTE: Read options on start
+            using (var f = new Options())
+            {
+                f.ReadValues();
+                if(f.selectOnStart.Checked)
+                {
+                    OpenFolderBrowser();
+                }
+            }
         }
 
         private PictureBox iconAdd;
         private PictureBox buildIcon;
+        private ToolStripMenuItem optionsToolStripMenuItem;
     }
 }

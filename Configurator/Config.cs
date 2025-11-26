@@ -18,27 +18,26 @@ namespace Configurator
     {
         public Config() {
             InitializeComponent();
-            Start();
             this.MaximizeBox = false;
             this.MinimizeBox = true;
         }
 
-        private void Config_Load(object sender, EventArgs e) {Console.WriteLine($"{DateTime.Now}: Loading config files");}
+        private void Config_Load(object sender, EventArgs e) {Console.WriteLine($"{DateTime.Now}: App loaded and ready.");}
+        private void Config_Shown(object sender, EventArgs e) {Start();}
         private void buttonChangeFolder_Click(object sender, EventArgs e) {OpenFolderBrowser();}
         private void buildButton_Click(object sender, EventArgs e) {StartBuilding();}
         private void executeButton_Click(object sender, EventArgs e) {ExecuteProgram();}
-
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e) { using (var f = new Options()) { f.ShowDialog(); } }
 
         //NOTE: MENU ACTIONS
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e){Application.Exit();}
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e) { MessageBox.Show("Dependencies Installer (v. " + Application.ProductVersion + ").", "About Dependencies Installer", MessageBoxButtons.OK); }
 
         private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProcessStartInfo website = new ProcessStartInfo("https://play-epik-incorporation.netlify.app/developers#dependenciesInstaller");
             Process.Start(website);
         }
-
-        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e){MessageBox.Show("Dependencies Installer (v. " + Application.ProductVersion + ").", "About Dependencies Installer", MessageBoxButtons.OK);}
 
         private void sendAFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
         {
