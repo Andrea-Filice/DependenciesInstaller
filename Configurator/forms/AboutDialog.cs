@@ -15,6 +15,10 @@ namespace Configurator.forms
         public AboutDialog()
         {
             InitializeComponent();
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
+
+        private void buttonOK_Click(object sender, EventArgs e) {this.Close();}
     }
 }

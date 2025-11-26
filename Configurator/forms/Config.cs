@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Net;
 using System.Windows.Forms;
+using Configurator.forms;
 using Newtonsoft.Json.Linq;
 
 namespace Configurator
@@ -23,7 +24,7 @@ namespace Configurator
 
         //NOTE: CONTEXT MENU ACTIONS
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e) {Application.Exit();}
-        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e) {MessageBox.Show("Dependencies Installer (v. " + Application.ProductVersion + ").", "About Dependencies Installer", MessageBoxButtons.OK);}
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e) { using (var f = new AboutDialog()) {f.ShowDialog();}}
         private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://play-epik-incorporation.netlify.app/developers#dependenciesInstaller");}
         private void sendAFeedbackToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=question");}
         private void bugReportToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=bug");}

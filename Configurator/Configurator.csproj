@@ -99,6 +99,9 @@
     </Compile>
     <Compile Include="scripts\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\Config.resx">
       <DependentUpon>Config.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +154,7 @@
     <Content Include="src\images\addFolder.png" />
     <Content Include="src\images\hammer.png" />
     <Content Include="src\images\settingsIcon.png" />
+    <Content Include="src\images\icon.png" />
     <Content Include="tools.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
