@@ -49,7 +49,7 @@ namespace Installer
                 Console.WriteLine($"{DateTime.Now}: Everything completed successfully!");
                 Environment.Exit(0);
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
                 MessageBox(IntPtr.Zero, $"Fatal error: an unknown error occurred during the execution of the game, error code: {ex.Message}", "Fatal Error", 0x00000010);
                 Environment.Exit(0);
