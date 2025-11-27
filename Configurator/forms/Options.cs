@@ -40,9 +40,13 @@ namespace Configurator
                 settings[key] = value;
                 SaveAppDataSettings(settings);
             }
-            catch (Exception ex)
+            catch (ConfigurationErrorsException ex)
             {
                 throw new ErrorGeneratedException(new ConfigurationErrorsException("Unable to save configuration.", ex));
+            }
+            catch (IOException ex)
+            {
+                throw new ErrorGeneratedException(new ConfigurationErrorsException("I/O error saving configuration.", ex));
             }
         }
 
@@ -70,10 +74,9 @@ namespace Configurator
                 var maxIndex = Math.Max(0, eacVersions.Items.Count - 1);
                 eacVersions.SelectedIndex = Math.Min(maxIndex, Math.Max(0, valueDropDown));
             }
-            catch (Exception ex)
-            {
-                throw new ErrorGeneratedException(ex);
-            }
+            catch (ConfigurationErrorsException ex) {throw new ErrorGeneratedException(ex);}
+            catch (IOException ex) {throw new ErrorGeneratedException(ex);}
+            catch (UnauthorizedAccessException ex) {throw new ErrorGeneratedException(ex);}
         }
 
         public string ReadKey(string key)
@@ -85,10 +88,9 @@ namespace Configurator
                     return v;
                 return null;
             }
-            catch (Exception ex)
-            {
-                throw new ErrorGeneratedException(ex);
-            }
+            catch (ConfigurationErrorsException ex) {throw new ErrorGeneratedException(ex);}
+            catch (UnauthorizedAccessException ex) {throw new ErrorGeneratedException(ex);}
+            catch (IOException ex){throw new ErrorGeneratedException(ex);}
         }
 
         private string GetAppDataFilePath()
