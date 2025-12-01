@@ -13,7 +13,13 @@ namespace Installer
         static void Main(string[] args)
         {
             string programPath = AppDomain.CurrentDomain.BaseDirectory;
+
+            //CHECK FOR THE .BAT FILE VERSION
             string batPath = Path.Combine(programPath, "Game", "Install_EasyAntiCheat.bat");
+
+            if (!File.Exists(batPath))
+                batPath = Path.Combine(programPath, "Game", "Install_EasyAntiCheat_old.bat");
+
             string exePath = Path.Combine(programPath, "Game", "start_protected_game.exe");
 
             string appDataRoot = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), appFolder = Path.Combine(appDataRoot, "PlayEpikInstaller");
@@ -43,7 +49,7 @@ namespace Installer
                 Console.WriteLine($"{DateTime.Now}: Everything completed successfully!");
                 Environment.Exit(0);
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
                 MessageBox(IntPtr.Zero, $"Fatal error: an unknown error occurred during the execution of the game, error code: {ex.Message}", "Fatal Error", 0x00000010);
                 Environment.Exit(0);

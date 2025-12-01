@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("DependenciesInstaller")]
@@ -12,5 +11,5 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("bef407e2-6cda-416b-a7e1-10b20ed814ba")]
 
-[assembly: AssemblyVersion("2.0.2.1")]
-[assembly: AssemblyFileVersion("2.0.2.1")]
+[assembly: AssemblyVersion("2.1.0.0")]
+[assembly: AssemblyFileVersion("2.1.0.0")]

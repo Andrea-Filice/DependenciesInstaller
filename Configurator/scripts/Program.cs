@@ -34,8 +34,8 @@ namespace Configurator
             //Control if path == null
             if (path == null || path.Trim() == "")
             {
-                MessageBox.Show("Error during the build of Installer.exe, Error 404: Folder Not Found or Empty.", "Build Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                buildLogs.Text = $"{GetCurrentDate()}: ERROR 404, Folder not found.";
+                MessageBox.Show("Error during the build of Installer.exe. Error 404: Folder Not Found or Empty.", "Build Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                buildLogs.Text = $"{GetCurrentDate()}: ERROR 404: Folder not found.";
                 buildLogs.ForeColor = Color.Red;
             }
             else
@@ -61,7 +61,7 @@ namespace Configurator
                 if (!Directory.Exists(gamePath))
                     Directory.CreateDirectory(gamePath);
                 else
-                    MessageBox.Show($"A folder with the name of \"Game\" already exists, the program will copy files into that folder.", "Build Warn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"A folder with the name of \"Game\" already exists. The program will copy files into that folder.", "Build Warn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 buildLogs.Text = $"{GetCurrentDate()}: Creating Game folder...";
                 progressBar.Value = 50;
 
@@ -163,21 +163,37 @@ namespace Configurator
                 await Task.Delay(1000);
 
                 //Install Install_EasyAntiCheat.bat into Game folder
-                string batPersistentDirectory = Path.Combine(applicationDirectory, "Install_EasyAntiCheat.bat");
-                buildLogs.Text = $"{GetCurrentDate()}: Installing \"Install_EasyAntiCheat.bat\" (886796dcf0f723)...";
+                string batPersistentDirectory = "";
+                string currentVersion = "";
+
+                using (var f = new Options())
+                {
+                    currentVersion = f.ReadKey("versionSelected");
+                    if(currentVersion == "0")
+                        batPersistentDirectory = Path.Combine(applicationDirectory, "Install_EasyAntiCheat.bat");
+                    else if(currentVersion == "1")
+                        batPersistentDirectory = Path.Combine(applicationDirectory, "Install_EasyAntiCheat_old.bat");
+
+                    buildLogs.Text = $"{GetCurrentDate()}: Installing \"Install_EasyAntiCheat.bat\"...";
+                }
 
                 try
                 {
-                    if (File.Exists(Path.Combine(gamePath, "Install_EasyAntiCheat.bat")))
+                    if (File.Exists(Path.Combine(gamePath, "Install_EasyAntiCheat.bat")) || File.Exists(Path.Combine(gamePath, "Install_EasyAntiCheat_old.bat")))
                     {
-                        MessageBox.Show($"An error occurred during the build and now is canceled, Error: Installer.exe already exists.", "Build Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"An error occurred during the build and now is canceled. Error: Installer.exe already exists.", "Build Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         buildLogs.ForeColor = Color.Red;
                         buildLogs.AutoEllipsis = true;
-                        buildLogs.Text = $"{GetCurrentDate()}: BUILD FAILED, Error: Installer.exe already exists.";
+                        buildLogs.Text = $"{GetCurrentDate()}: BUILD FAILED! Error: Installer.exe already exists.";
                         await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     }
-                    else 
-                        File.Copy(batPersistentDirectory, Path.Combine(gamePath, "Install_EasyAntiCheat.bat"));
+                    else
+                    {
+                        if (currentVersion == "0")
+                            File.Copy(batPersistentDirectory, Path.Combine(gamePath, "Install_EasyAntiCheat.bat"));
+                        else if (currentVersion == "1")
+                            File.Copy(batPersistentDirectory, Path.Combine(gamePath, "Install_EasyAntiCheat_old.bat"));
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -202,6 +218,16 @@ namespace Configurator
                 buildLogs.ForeColor = Color.Green;
                 executeButton.Visible = true;
                 buildLogs.Text = $"{GetCurrentDate()}: BUILD SUCCEEDED! (Time elapsed: {timeElapsedMinutes}:{timeElapsedSeconds})";
+
+                //Check if the option for executing after build is enabled.
+                using(var f = new Options())
+                {
+                    if (f.onBuild.Checked)
+                    {
+                        executeButton.Visible = false;
+                        Execute(path);
+                    }
+                }
 
                 //Reset UI
                 await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
