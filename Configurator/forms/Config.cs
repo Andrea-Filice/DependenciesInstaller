@@ -34,7 +34,7 @@ namespace Configurator
         {
             using (WebClient wc = new WebClient())
             {
-                var json = wc.DownloadString("https://playepikservercontents.netlify.app/dependencies/dependencies.json");
+                var json = wc.DownloadString("https://cdn-playepik.netlify.app/dependencies/dependencies.json");
                 JObject data = JObject.Parse(json);
 
                 string currentVersion = Application.ProductVersion;
