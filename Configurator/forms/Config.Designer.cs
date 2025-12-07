@@ -9,7 +9,7 @@ namespace Configurator
     {
         //VARIABLES
         public string selectedPath = null;
-        private System.ComponentModel.IContainer components = null;
+        private readonly System.ComponentModel.IContainer components = null;
 
         protected override void Dispose(bool disposing)
         {

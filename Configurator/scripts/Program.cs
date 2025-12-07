@@ -94,7 +94,12 @@ namespace Configurator
 
                     //Error handling
                     try {File.Move(fileToMove, dstFile);}
-                    catch (Exception ex)
+                    catch (IOException ex)
+                    {
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
+                        throw new BuildFailedException(buildLogs, ex);
+                    }
+                    catch(UnauthorizedAccessException ex)
                     {
                         await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                         throw new BuildFailedException(buildLogs, ex);
@@ -125,7 +130,13 @@ namespace Configurator
 
                             buildLogs.Text = $"{GetCurrentDate()}: Moving folders ({folders.Length-1}/{currentlyMoved})...";
                         }
-                        catch (Exception ex)
+                        catch (Exception ex) when(
+                            ex is IOException ||
+                            ex is UnauthorizedAccessException ||
+                            ex is DirectoryNotFoundException ||
+                            ex is PathTooLongException ||
+                            ex is ArgumentException
+                        )
                         {
                             await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                             throw new BuildFailedException(buildLogs, ex);
@@ -153,7 +164,11 @@ namespace Configurator
                     else
                         File.Copy(exePersistentDirectory, destinationPath);
                 }
-                catch (Exception ex)
+                catch (Exception ex) when (
+                    ex is IOException ||
+                    ex is UnauthorizedAccessException ||
+                    ex is PathTooLongException
+                )
                 {
                     await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     throw new BuildFailedException(buildLogs, ex);
@@ -195,7 +210,12 @@ namespace Configurator
                             File.Copy(batPersistentDirectory, Path.Combine(gamePath, "Install_EasyAntiCheat_old.bat"));
                     }
                 }
-                catch (Exception ex)
+                catch (Exception ex) when(
+                    ex is IOException ||
+                    ex is UnauthorizedAccessException ||
+                    ex is ArgumentException ||
+                    ex is NotSupportedException
+                )
                 {
                     await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
                     throw new BuildFailedException(buildLogs, ex);
