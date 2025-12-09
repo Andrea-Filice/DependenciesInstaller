@@ -20,7 +20,7 @@ namespace Configurator
             Application.Run(new Config());
         }
 
-        public static async Task BuildApplication(string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton, PictureBox image)
+        public static async Task BuildApplication(string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton, PictureBox buildIcon)
         {
             //Variables
             string baseFolderPath, gamePath;
@@ -61,7 +61,7 @@ namespace Configurator
                 if (!Directory.Exists(gamePath))
                     Directory.CreateDirectory(gamePath);
                 else
-                    MessageBox.Show($"A folder with the name of \"Game\" already exists. The program will copy files into that folder.", "Build Warn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"A folder with the name of \"Game\" already exists. The program will copy files into that folder.", "Build Paused", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 buildLogs.Text = $"{GetCurrentDate()}: Creating Game folder...";
                 progressBar.Value = 50;
 
@@ -94,9 +94,14 @@ namespace Configurator
 
                     //Error handling
                     try {File.Move(fileToMove, dstFile);}
-                    catch (Exception ex)
+                    catch (IOException ex)
                     {
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
+                        throw new BuildFailedException(buildLogs, ex);
+                    }
+                    catch(UnauthorizedAccessException ex)
+                    {
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
                         throw new BuildFailedException(buildLogs, ex);
                     }
                 }
@@ -125,9 +130,15 @@ namespace Configurator
 
                             buildLogs.Text = $"{GetCurrentDate()}: Moving folders ({folders.Length-1}/{currentlyMoved})...";
                         }
-                        catch (Exception ex)
+                        catch (Exception ex) when(
+                            ex is IOException ||
+                            ex is UnauthorizedAccessException ||
+                            ex is DirectoryNotFoundException ||
+                            ex is PathTooLongException ||
+                            ex is ArgumentException
+                        )
                         {
-                            await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
+                            await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
                             throw new BuildFailedException(buildLogs, ex);
                         }
                     }
@@ -147,15 +158,19 @@ namespace Configurator
                 {
                     if (File.Exists(destinationPath))
                     {
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
                         throw new BuildFailedException(buildLogs, null);
                     }
                     else
                         File.Copy(exePersistentDirectory, destinationPath);
                 }
-                catch (Exception ex)
+                catch (Exception ex) when (
+                    ex is IOException ||
+                    ex is UnauthorizedAccessException ||
+                    ex is PathTooLongException
+                )
                 {
-                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
+                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 80;
@@ -185,7 +200,7 @@ namespace Configurator
                         buildLogs.ForeColor = Color.Red;
                         buildLogs.AutoEllipsis = true;
                         buildLogs.Text = $"{GetCurrentDate()}: BUILD FAILED! Error: Installer.exe already exists.";
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
+                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
                     }
                     else
                     {
@@ -195,9 +210,14 @@ namespace Configurator
                             File.Copy(batPersistentDirectory, Path.Combine(gamePath, "Install_EasyAntiCheat_old.bat"));
                     }
                 }
-                catch (Exception ex)
+                catch (Exception ex) when(
+                    ex is IOException ||
+                    ex is UnauthorizedAccessException ||
+                    ex is ArgumentException ||
+                    ex is NotSupportedException
+                )
                 {
-                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
+                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 90;
@@ -230,7 +250,7 @@ namespace Configurator
                 }
 
                 //Reset UI
-                await ResetUI(buildLogs, progressBar, executeButton, baseButton, image);
+                await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
             }
         }
 
@@ -266,6 +286,7 @@ namespace Configurator
             buildButton.Visible = true;
             buildButton.Enabled = true;
             buildButton.BackColor = Color.Black;
+            buildIcon.Visible = true;
         }
         public static string GetCurrentDate()
         {
