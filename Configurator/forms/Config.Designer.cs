@@ -49,9 +49,9 @@ namespace Configurator
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendAFeedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bugReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.suggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iconAdd = new System.Windows.Forms.PictureBox();
             this.buildIcon = new System.Windows.Forms.PictureBox();
-            this.suggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buildIcon)).BeginInit();
@@ -296,16 +296,23 @@ namespace Configurator
             // sendAFeedbackToolStripMenuItem
             // 
             this.sendAFeedbackToolStripMenuItem.Name = "sendAFeedbackToolStripMenuItem";
-            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.sendAFeedbackToolStripMenuItem.Text = "Send a Feedback";
             this.sendAFeedbackToolStripMenuItem.Click += new System.EventHandler(this.sendAFeedbackToolStripMenuItem_Click);
             // 
             // bugReportToolStripMenuItem
             // 
             this.bugReportToolStripMenuItem.Name = "bugReportToolStripMenuItem";
-            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.bugReportToolStripMenuItem.Text = "Bug Report";
             this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
+            // 
+            // suggestionToolStripMenuItem
+            // 
+            this.suggestionToolStripMenuItem.Name = "suggestionToolStripMenuItem";
+            this.suggestionToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.suggestionToolStripMenuItem.Text = "Share a Suggestion";
+            this.suggestionToolStripMenuItem.Click += new System.EventHandler(this.suggestionToolStripMenuItem_Click);
             // 
             // iconAdd
             // 
@@ -332,13 +339,6 @@ namespace Configurator
             this.buildIcon.TabStop = false;
             this.buildIcon.Visible = false;
             // 
-            // suggestionToolStripMenuItem
-            // 
-            this.suggestionToolStripMenuItem.Name = "suggestionToolStripMenuItem";
-            this.suggestionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.suggestionToolStripMenuItem.Text = "Share a Suggestion";
-            this.suggestionToolStripMenuItem.Click += new System.EventHandler(this.suggestionToolStripMenuItem_Click);
-            // 
             // Config
             // 
             this.AllowDrop = true;
@@ -363,6 +363,7 @@ namespace Configurator
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuBar;
             this.Name = "Config";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurator";
             this.Load += new System.EventHandler(this.Config_Load);
             this.Shown += new System.EventHandler(this.Config_Shown);
