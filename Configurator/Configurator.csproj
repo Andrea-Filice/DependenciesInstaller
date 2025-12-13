@@ -155,6 +155,7 @@
     <Content Include="src\images\hammer.png" />
     <Content Include="src\images\settingsIcon.png" />
     <Content Include="src\images\icon.png" />
+    <Content Include="src\images\infoIcon.png" />
     <Content Include="tools.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
