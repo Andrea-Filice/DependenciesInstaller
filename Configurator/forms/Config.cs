@@ -48,12 +48,12 @@ namespace Configurator
 
                 if (result < 0)
                 {
-                    var message = MessageBox.Show("A new update is available! (v. " + latestVersion + "), Do you want to update it?", "Updater", MessageBoxButtons.YesNo);
+                    var message = MessageBox.Show("A new update is available! (v. " + latestVersion + "), Do you want to update it?", "Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if(message == DialogResult.Yes)
                         Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/releases/latest");
                 }
                 else
-                    MessageBox.Show("You have the latest version available.", "Updater", MessageBoxButtons.OK);
+                    MessageBox.Show("You have the latest version available.", "Updater", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
     }
