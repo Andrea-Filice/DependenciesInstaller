@@ -39,22 +39,23 @@ namespace Configurator
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.visitWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendAFeedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bugReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.suggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iconAdd = new System.Windows.Forms.PictureBox();
             this.buildIcon = new System.Windows.Forms.PictureBox();
-            this.suggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dependenciesIcon = new System.Windows.Forms.PictureBox();
+            this.warningPB = new System.Windows.Forms.PictureBox();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buildIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dependenciesIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warningPB)).BeginInit();
             this.SuspendLayout();
             // 
             // labelStart
@@ -63,11 +64,11 @@ namespace Configurator
             this.labelStart.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.labelStart.Font = new System.Drawing.Font("Clash Display Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStart.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.labelStart.Location = new System.Drawing.Point(50, 48);
+            this.labelStart.Location = new System.Drawing.Point(189, 47);
             this.labelStart.Name = "labelStart";
-            this.labelStart.Size = new System.Drawing.Size(703, 38);
+            this.labelStart.Size = new System.Drawing.Size(454, 38);
             this.labelStart.TabIndex = 0;
-            this.labelStart.Text = "Configure your game for Easy-AntiCheat";
+            this.labelStart.Text = "Configure Easy-AntiCheat";
             // 
             // gameFolder
             // 
@@ -189,7 +190,6 @@ namespace Configurator
             this.menuBar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.viewToolStripMenuItem,
             this.windowToolStripMenuItem,
             this.aboutToolStripMenuItem,
             this.helpToolStripMenuItem});
@@ -229,21 +229,6 @@ namespace Configurator
             this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.checkForUpdatesToolStripMenuItem.Text = "Exit";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reloadToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // reloadToolStripMenuItem
-            // 
-            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
-            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
-            this.reloadToolStripMenuItem.Text = "Reload";
-            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
@@ -286,26 +271,25 @@ namespace Configurator
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sendAFeedbackToolStripMenuItem,
             this.bugReportToolStripMenuItem,
             this.suggestionToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // sendAFeedbackToolStripMenuItem
-            // 
-            this.sendAFeedbackToolStripMenuItem.Name = "sendAFeedbackToolStripMenuItem";
-            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.sendAFeedbackToolStripMenuItem.Text = "Send a Feedback";
-            this.sendAFeedbackToolStripMenuItem.Click += new System.EventHandler(this.sendAFeedbackToolStripMenuItem_Click);
-            // 
             // bugReportToolStripMenuItem
             // 
             this.bugReportToolStripMenuItem.Name = "bugReportToolStripMenuItem";
-            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.bugReportToolStripMenuItem.Text = "Bug Report";
             this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
+            // 
+            // suggestionToolStripMenuItem
+            // 
+            this.suggestionToolStripMenuItem.Name = "suggestionToolStripMenuItem";
+            this.suggestionToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.suggestionToolStripMenuItem.Text = "Share a Suggestion";
+            this.suggestionToolStripMenuItem.Click += new System.EventHandler(this.suggestionToolStripMenuItem_Click);
             // 
             // iconAdd
             // 
@@ -332,12 +316,25 @@ namespace Configurator
             this.buildIcon.TabStop = false;
             this.buildIcon.Visible = false;
             // 
-            // suggestionToolStripMenuItem
+            // dependenciesIcon
             // 
-            this.suggestionToolStripMenuItem.Name = "suggestionToolStripMenuItem";
-            this.suggestionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.suggestionToolStripMenuItem.Text = "Share a Suggestion";
-            this.suggestionToolStripMenuItem.Click += new System.EventHandler(this.suggestionToolStripMenuItem_Click);
+            this.dependenciesIcon.Image = ((System.Drawing.Image)(resources.GetObject("dependenciesIcon.Image")));
+            this.dependenciesIcon.Location = new System.Drawing.Point(136, 47);
+            this.dependenciesIcon.Name = "dependenciesIcon";
+            this.dependenciesIcon.Size = new System.Drawing.Size(47, 42);
+            this.dependenciesIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.dependenciesIcon.TabIndex = 13;
+            this.dependenciesIcon.TabStop = false;
+            // 
+            // warningPB
+            // 
+            this.warningPB.Image = ((System.Drawing.Image)(resources.GetObject("warningPB.Image")));
+            this.warningPB.Location = new System.Drawing.Point(16, 380);
+            this.warningPB.Name = "warningPB";
+            this.warningPB.Size = new System.Drawing.Size(28, 27);
+            this.warningPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.warningPB.TabIndex = 14;
+            this.warningPB.TabStop = false;
             // 
             // Config
             // 
@@ -346,6 +343,8 @@ namespace Configurator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.warningPB);
+            this.Controls.Add(this.dependenciesIcon);
             this.Controls.Add(this.buildIcon);
             this.Controls.Add(this.iconAdd);
             this.Controls.Add(this.versionNumber);
@@ -363,6 +362,7 @@ namespace Configurator
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuBar;
             this.Name = "Config";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurator";
             this.Load += new System.EventHandler(this.Config_Load);
             this.Shown += new System.EventHandler(this.Config_Shown);
@@ -370,6 +370,8 @@ namespace Configurator
             this.menuBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buildIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dependenciesIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warningPB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,7 +435,6 @@ namespace Configurator
         private ToolStripMenuItem aboutToolStripMenuItem1;
         private ToolStripMenuItem visitWebsiteToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
-        private ToolStripMenuItem sendAFeedbackToolStripMenuItem;
         private ToolStripMenuItem bugReportToolStripMenuItem;
 
         private void Start() //NOTE: Called within the InitializeComponents method
@@ -452,10 +453,10 @@ namespace Configurator
         private PictureBox iconAdd;
         private PictureBox buildIcon;
         private ToolStripMenuItem optionsToolStripMenuItem;
-        private ToolStripMenuItem viewToolStripMenuItem;
-        private ToolStripMenuItem reloadToolStripMenuItem;
         private ToolStripMenuItem windowToolStripMenuItem;
         private ToolStripMenuItem minimizeToolStripMenuItem;
         private ToolStripMenuItem suggestionToolStripMenuItem;
+        private PictureBox dependenciesIcon;
+        private PictureBox warningPB;
     }
 }

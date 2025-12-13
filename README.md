@@ -2,6 +2,8 @@
 
 ![GitHub release](https://img.shields.io/github/v/release/Play-Epik-Inc/DependeciesInstaller?color=009dff) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Play-Epik-Inc/DependeciesInstaller/blob/main/LICENSE) [![.NET](https://github.com/Andrea-Filice/DependenciesInstaller/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Andrea-Filice/DependenciesInstaller/actions/workflows/dotnet.yml)
 
+<img src="src/git_slide1.png" alt="Slide 1">
+
 An easy-to-use software for integrating anti-cheat measures.
 
 # **Summary**
