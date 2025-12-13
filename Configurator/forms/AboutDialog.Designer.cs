@@ -55,9 +55,9 @@
             this.appVersion.Font = new System.Drawing.Font("Manrope", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appVersion.Location = new System.Drawing.Point(85, 76);
             this.appVersion.Name = "appVersion";
-            this.appVersion.Size = new System.Drawing.Size(166, 25);
+            this.appVersion.Size = new System.Drawing.Size(169, 25);
             this.appVersion.TabIndex = 2;
-            this.appVersion.Text = "2.1.0.1 (07122025B)";
+            this.appVersion.Text = "2.1.0.2 (13122025C)";
             // 
             // buttonOK
             // 
