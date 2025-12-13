@@ -24,9 +24,8 @@ namespace Configurator
 
         //NOTE: CONTEXT MENU ACTIONS
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e) {Application.Exit();}
-        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e) { using (var f = new AboutDialog()) {f.ShowDialog();}}
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e) {using (var f = new AboutDialog()) {f.ShowDialog();}}
         private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://play-epik-incorporation.netlify.app/developers#dependenciesInstaller");}
-        private void sendAFeedbackToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=question");}
         private void bugReportToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=bug");}
         private void suggestionToolStripMenuItem_Click(object sender, EventArgs e) { Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=enhancement"); }
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e) { this.WindowState = FormWindowState.Minimized; }
@@ -56,11 +55,6 @@ namespace Configurator
                 else
                     MessageBox.Show("You have the latest version available.", "Updater", MessageBoxButtons.OK);
             }
-        }
-        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("The application will restart to apply changes.", "Reload", MessageBoxButtons.OK);
-            this.Refresh();
         }
     }
 }

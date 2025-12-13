@@ -39,15 +39,12 @@ namespace Configurator
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.visitWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendAFeedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bugReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iconAdd = new System.Windows.Forms.PictureBox();
@@ -189,7 +186,6 @@ namespace Configurator
             this.menuBar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.viewToolStripMenuItem,
             this.windowToolStripMenuItem,
             this.aboutToolStripMenuItem,
             this.helpToolStripMenuItem});
@@ -229,21 +225,6 @@ namespace Configurator
             this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.checkForUpdatesToolStripMenuItem.Text = "Exit";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reloadToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // reloadToolStripMenuItem
-            // 
-            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
-            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
-            this.reloadToolStripMenuItem.Text = "Reload";
-            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
@@ -286,19 +267,11 @@ namespace Configurator
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sendAFeedbackToolStripMenuItem,
             this.bugReportToolStripMenuItem,
             this.suggestionToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // sendAFeedbackToolStripMenuItem
-            // 
-            this.sendAFeedbackToolStripMenuItem.Name = "sendAFeedbackToolStripMenuItem";
-            this.sendAFeedbackToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
-            this.sendAFeedbackToolStripMenuItem.Text = "Send a Feedback";
-            this.sendAFeedbackToolStripMenuItem.Click += new System.EventHandler(this.sendAFeedbackToolStripMenuItem_Click);
             // 
             // bugReportToolStripMenuItem
             // 
@@ -434,7 +407,6 @@ namespace Configurator
         private ToolStripMenuItem aboutToolStripMenuItem1;
         private ToolStripMenuItem visitWebsiteToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
-        private ToolStripMenuItem sendAFeedbackToolStripMenuItem;
         private ToolStripMenuItem bugReportToolStripMenuItem;
 
         private void Start() //NOTE: Called within the InitializeComponents method
@@ -453,8 +425,6 @@ namespace Configurator
         private PictureBox iconAdd;
         private PictureBox buildIcon;
         private ToolStripMenuItem optionsToolStripMenuItem;
-        private ToolStripMenuItem viewToolStripMenuItem;
-        private ToolStripMenuItem reloadToolStripMenuItem;
         private ToolStripMenuItem windowToolStripMenuItem;
         private ToolStripMenuItem minimizeToolStripMenuItem;
         private ToolStripMenuItem suggestionToolStripMenuItem;
