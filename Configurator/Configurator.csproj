@@ -152,8 +152,11 @@
     <None Include="Resources\addFolder.png" />
     <None Include="Resources\monitor-sun.png" />
     <Content Include="src\images\addFolder.png" />
-    <Content Include="src\images\hammer.png" />
+    <Content Include="src\images\versionsIcon.png" />
     <Content Include="src\images\settingsIcon.png" />
+    <Content Include="src\images\warning.png" />
+    <Content Include="src\images\hammer.png" />
+    <Content Include="src\images\dependencies.png" />
     <Content Include="src\images\icon.png" />
     <Content Include="src\images\infoIcon.png" />
     <Content Include="tools.ico" />

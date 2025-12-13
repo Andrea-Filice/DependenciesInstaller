@@ -49,9 +49,13 @@ namespace Configurator
             this.suggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iconAdd = new System.Windows.Forms.PictureBox();
             this.buildIcon = new System.Windows.Forms.PictureBox();
+            this.dependenciesIcon = new System.Windows.Forms.PictureBox();
+            this.warningPB = new System.Windows.Forms.PictureBox();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buildIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dependenciesIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warningPB)).BeginInit();
             this.SuspendLayout();
             // 
             // labelStart
@@ -60,11 +64,11 @@ namespace Configurator
             this.labelStart.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.labelStart.Font = new System.Drawing.Font("Clash Display Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStart.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.labelStart.Location = new System.Drawing.Point(50, 48);
+            this.labelStart.Location = new System.Drawing.Point(189, 47);
             this.labelStart.Name = "labelStart";
-            this.labelStart.Size = new System.Drawing.Size(703, 38);
+            this.labelStart.Size = new System.Drawing.Size(454, 38);
             this.labelStart.TabIndex = 0;
-            this.labelStart.Text = "Configure your game for Easy-AntiCheat";
+            this.labelStart.Text = "Configure Easy-AntiCheat";
             // 
             // gameFolder
             // 
@@ -312,6 +316,26 @@ namespace Configurator
             this.buildIcon.TabStop = false;
             this.buildIcon.Visible = false;
             // 
+            // dependenciesIcon
+            // 
+            this.dependenciesIcon.Image = ((System.Drawing.Image)(resources.GetObject("dependenciesIcon.Image")));
+            this.dependenciesIcon.Location = new System.Drawing.Point(136, 47);
+            this.dependenciesIcon.Name = "dependenciesIcon";
+            this.dependenciesIcon.Size = new System.Drawing.Size(47, 42);
+            this.dependenciesIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.dependenciesIcon.TabIndex = 13;
+            this.dependenciesIcon.TabStop = false;
+            // 
+            // warningPB
+            // 
+            this.warningPB.Image = ((System.Drawing.Image)(resources.GetObject("warningPB.Image")));
+            this.warningPB.Location = new System.Drawing.Point(16, 380);
+            this.warningPB.Name = "warningPB";
+            this.warningPB.Size = new System.Drawing.Size(28, 27);
+            this.warningPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.warningPB.TabIndex = 14;
+            this.warningPB.TabStop = false;
+            // 
             // Config
             // 
             this.AllowDrop = true;
@@ -319,6 +343,8 @@ namespace Configurator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.warningPB);
+            this.Controls.Add(this.dependenciesIcon);
             this.Controls.Add(this.buildIcon);
             this.Controls.Add(this.iconAdd);
             this.Controls.Add(this.versionNumber);
@@ -344,6 +370,8 @@ namespace Configurator
             this.menuBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buildIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dependenciesIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warningPB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +456,7 @@ namespace Configurator
         private ToolStripMenuItem windowToolStripMenuItem;
         private ToolStripMenuItem minimizeToolStripMenuItem;
         private ToolStripMenuItem suggestionToolStripMenuItem;
+        private PictureBox dependenciesIcon;
+        private PictureBox warningPB;
     }
 }

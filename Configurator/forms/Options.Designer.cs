@@ -26,17 +26,19 @@ namespace Configurator
             this.versionText = new System.Windows.Forms.Label();
             this.infoOpt1 = new System.Windows.Forms.PictureBox();
             this.infoOpt2 = new System.Windows.Forms.PictureBox();
+            this.versionIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoOpt1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoOpt2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.versionIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(82, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(90, 16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 36);
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -118,11 +120,22 @@ namespace Configurator
             this.infoOpt2.TabStop = false;
             this.infoOpt2.Click += new System.EventHandler(this.infoOpt2_Click);
             // 
+            // versionIcon
+            // 
+            this.versionIcon.Image = ((System.Drawing.Image)(resources.GetObject("versionIcon.Image")));
+            this.versionIcon.Location = new System.Drawing.Point(97, 158);
+            this.versionIcon.Name = "versionIcon";
+            this.versionIcon.Size = new System.Drawing.Size(25, 25);
+            this.versionIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.versionIcon.TabIndex = 8;
+            this.versionIcon.TabStop = false;
+            // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 253);
+            this.Controls.Add(this.versionIcon);
             this.Controls.Add(this.infoOpt2);
             this.Controls.Add(this.infoOpt1);
             this.Controls.Add(this.versionText);
@@ -141,6 +154,7 @@ namespace Configurator
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoOpt1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoOpt2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.versionIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +170,6 @@ namespace Configurator
         private System.Windows.Forms.Label versionText;
         private System.Windows.Forms.PictureBox infoOpt1;
         private System.Windows.Forms.PictureBox infoOpt2;
+        private System.Windows.Forms.PictureBox versionIcon;
     }
 }
