@@ -1,4 +1,6 @@
-﻿namespace Configurator.forms
+﻿using System.Windows.Forms;
+
+namespace Configurator.forms
 {
     partial class AboutDialog
     {
@@ -6,9 +8,7 @@
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
@@ -57,7 +57,7 @@
             this.appVersion.Name = "appVersion";
             this.appVersion.Size = new System.Drawing.Size(169, 25);
             this.appVersion.TabIndex = 2;
-            this.appVersion.Text = "2.1.0.2 (13122025C)";
+            this.appVersion.Text = "";
             // 
             // buttonOK
             // 
@@ -99,5 +99,8 @@
         private System.Windows.Forms.Label appName;
         private System.Windows.Forms.Label appVersion;
         private System.Windows.Forms.Button buttonOK;
+        private string buildNumber = "13122025C";
+
+        private void OnLoad() {appVersion.Text = $"{Application.ProductVersion} ({buildNumber})";}
     }
 }
