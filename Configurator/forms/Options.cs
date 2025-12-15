@@ -132,5 +132,8 @@ namespace Configurator
             }
             File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
         }
+
+        private void infoOpt1_Click(object sender, EventArgs e) {MessageBox.Show($"The “Select Folder on Start” option launches the folder selection mode as soon as the application is opened.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);}
+        private void infoOpt2_Click(object sender, EventArgs e) {MessageBox.Show($"The “Execute on Build” option, when enabled, immediately launches a preview of your game when the build is complete.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);}
     }
 }
