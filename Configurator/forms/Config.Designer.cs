@@ -9,7 +9,6 @@ namespace Configurator
     {
         //VARIABLES
         public string selectedPath = null;
-        private readonly System.ComponentModel.IContainer components = null;
 
         protected override void Dispose(bool disposing)
         {
@@ -22,6 +21,7 @@ namespace Configurator
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Config));
             this.labelStart = new System.Windows.Forms.Label();
             this.gameFolder = new System.Windows.Forms.Label();
@@ -51,6 +51,7 @@ namespace Configurator
             this.buildIcon = new System.Windows.Forms.PictureBox();
             this.dependenciesIcon = new System.Windows.Forms.PictureBox();
             this.warningPB = new System.Windows.Forms.PictureBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buildIcon)).BeginInit();
@@ -90,6 +91,7 @@ namespace Configurator
             this.buttonChangeFolder.Size = new System.Drawing.Size(146, 31);
             this.buttonChangeFolder.TabIndex = 2;
             this.buttonChangeFolder.Text = "Change";
+            this.toolTip.SetToolTip(this.buttonChangeFolder, "Change build Folder");
             this.buttonChangeFolder.UseMnemonic = false;
             this.buttonChangeFolder.UseVisualStyleBackColor = false;
             this.buttonChangeFolder.Click += new System.EventHandler(this.buttonChangeFolder_Click);
@@ -128,6 +130,7 @@ namespace Configurator
             this.buildButton.Size = new System.Drawing.Size(374, 48);
             this.buildButton.TabIndex = 5;
             this.buildButton.Text = "Build";
+            this.toolTip.SetToolTip(this.buildButton, "Build");
             this.buildButton.UseMnemonic = false;
             this.buildButton.UseVisualStyleBackColor = false;
             this.buildButton.Click += new System.EventHandler(this.buildButton_Click);
@@ -155,6 +158,7 @@ namespace Configurator
             this.progressBar.Step = 0;
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 7;
+            this.toolTip.SetToolTip(this.progressBar, "Build Progress");
             this.progressBar.Value = 20;
             this.progressBar.Visible = false;
             // 
@@ -168,6 +172,7 @@ namespace Configurator
             this.executeButton.Size = new System.Drawing.Size(149, 35);
             this.executeButton.TabIndex = 8;
             this.executeButton.Text = "Execute";
+            this.toolTip.SetToolTip(this.executeButton, "Run the built program");
             this.executeButton.UseMnemonic = false;
             this.executeButton.UseVisualStyleBackColor = false;
             this.executeButton.Visible = false;
@@ -458,5 +463,7 @@ namespace Configurator
         private ToolStripMenuItem suggestionToolStripMenuItem;
         private PictureBox dependenciesIcon;
         private PictureBox warningPB;
+        private ToolTip toolTip;
+        private System.ComponentModel.IContainer components;
     }
 }
