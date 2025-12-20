@@ -24,7 +24,7 @@ namespace Configurator
         public static async Task BuildApplication(string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton, PictureBox buildIcon)
         {
             //Windows Taskbar values
-            TaskbarProgressBarState _state = TaskbarProgressBarState.Normal;
+            TaskbarProgressBarState _state;
 
             //Variables
             string baseFolderPath, gamePath;
