@@ -418,9 +418,14 @@ namespace Configurator
             }
         }
 
+
+        //Variables
+        internal bool buildInProgress = false;
+
         //Start the build
         private async void StartBuilding() {
             buildIcon.Visible = false;
+            buildInProgress = true;
             await Program.BuildApplication(selectedPath, buildLogs, progressBar, buildButton, executeButton, buildIcon);
         }
 
