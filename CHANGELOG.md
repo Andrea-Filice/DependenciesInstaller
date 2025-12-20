@@ -1,14 +1,10 @@
-# Dependencies Installer 2.1.1.0
+# Dependencies Installer 2.1.1.1
 
 # Stack Upgrades
-- ConfigurationManager `10.0.1`
-  - [New in 10.0.1](https://github.com/dotnet/dotnet/releases/tag/v10.0.101)
-
-# New Feautures
-[450220b] New Info buttons added in Options.
-[7283c4a] New icons and a new UI added! Existing icons revamped to match the current style of the application.
+- **EAC Core (v. December 2025, c935ac1c65ef14).**
 
 # Bug Fixes
-[82cca8b] Fixed some bugs in the “About Dependencies Installer” dialog.
-[4545675] Fixed the point where the app opens. Now it is more centered.
-[c502b89] Removed some “unnecessary” options from the Context Menu.
+[9fd63f0] Added Tooltips.
+[7d888cf] Added functionality where you can now see the build progress in the Windows TaskBar as well.
+[b874a15] Unused resources removed.
+[d46c867] Added a pop-up to confirm exit from the application.
