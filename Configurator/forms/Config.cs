@@ -23,7 +23,18 @@ namespace Configurator
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e) {using (var f = new Options()) {f.ShowDialog();}}
 
         //NOTE: CONTEXT MENU ACTIONS
-        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e) {Application.Exit();}
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (buildInProgress)
+            {
+                Console.WriteLine(": " + buildInProgress);
+                var msg = MessageBox.Show("There is a build currently running, are you sure you want to exit?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (msg == DialogResult.Yes)
+                    Application.Exit();
+            }
+            else
+                Application.Exit();
+        }
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e) {using (var f = new AboutDialog()) {f.ShowDialog();}}
         private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://play-epik-incorporation.netlify.app/developers#dependenciesInstaller");}
         private void bugReportToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=bug");}
@@ -55,6 +66,21 @@ namespace Configurator
                 else
                     MessageBox.Show("You have the latest version available.", "Updater", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
+        }
+
+
+        //NOTE: OnExit handler
+        private void Config_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (buildInProgress)
+            {
+                Console.WriteLine(": " + buildInProgress);
+                var msg = MessageBox.Show("There is a build currently running, are you sure you want to exit?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (msg == DialogResult.Yes)
+                    Application.Exit();
+            }
+            else
+                Application.Exit();
         }
     }
 }

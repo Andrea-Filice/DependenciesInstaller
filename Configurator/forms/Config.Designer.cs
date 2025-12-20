@@ -369,6 +369,7 @@ namespace Configurator
             this.Name = "Config";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Config_FormClosing);
             this.Load += new System.EventHandler(this.Config_Load);
             this.Shown += new System.EventHandler(this.Config_Shown);
             this.menuBar.ResumeLayout(false);
@@ -426,6 +427,7 @@ namespace Configurator
         private async void StartBuilding() {
             buildIcon.Visible = false;
             buildInProgress = true;
+            Console.WriteLine(buildInProgress);
             await Program.BuildApplication(selectedPath, buildLogs, progressBar, buildButton, executeButton, buildIcon);
         }
 
