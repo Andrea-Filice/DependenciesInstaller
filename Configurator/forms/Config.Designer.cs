@@ -300,7 +300,7 @@ namespace Configurator
             // 
             this.iconAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.iconAdd.Image = ((System.Drawing.Image)(resources.GetObject("iconAdd.Image")));
-            this.iconAdd.InitialImage = global::Configurator.Properties.Resources.addFolder;
+            this.iconAdd.InitialImage = ((System.Drawing.Image)(resources.GetObject("iconAdd.InitialImage")));
             this.iconAdd.Location = new System.Drawing.Point(42, 97);
             this.iconAdd.Name = "iconAdd";
             this.iconAdd.Size = new System.Drawing.Size(28, 27);
