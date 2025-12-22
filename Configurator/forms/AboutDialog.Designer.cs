@@ -4,7 +4,6 @@ namespace Configurator.forms
 {
     partial class AboutDialog
     {
-        private readonly System.ComponentModel.IContainer components = null;
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +19,14 @@ namespace Configurator.forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutDialog));
             this.appIcon = new System.Windows.Forms.PictureBox();
             this.appName = new System.Windows.Forms.Label();
             this.appVersion = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolTipAbout = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.appIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +57,8 @@ namespace Configurator.forms
             this.appVersion.Font = new System.Drawing.Font("Manrope", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appVersion.Location = new System.Drawing.Point(85, 76);
             this.appVersion.Name = "appVersion";
-            this.appVersion.Size = new System.Drawing.Size(169, 25);
+            this.appVersion.Size = new System.Drawing.Size(0, 25);
             this.appVersion.TabIndex = 2;
-            this.appVersion.Text = "";
             // 
             // buttonOK
             // 
@@ -67,8 +68,18 @@ namespace Configurator.forms
             this.buttonOK.Size = new System.Drawing.Size(65, 30);
             this.buttonOK.TabIndex = 3;
             this.buttonOK.Text = "OK";
+            this.toolTipAbout.SetToolTip(this.buttonOK, "Close");
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(468, 25);
+            this.toolStrip1.TabIndex = 4;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // AboutDialog
             // 
@@ -76,6 +87,7 @@ namespace Configurator.forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 178);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.appVersion);
             this.Controls.Add(this.appName);
@@ -99,8 +111,12 @@ namespace Configurator.forms
         private System.Windows.Forms.Label appName;
         private System.Windows.Forms.Label appVersion;
         private System.Windows.Forms.Button buttonOK;
-        private readonly string buildNumber = "13122025C";
+        private readonly string buildNumber = "20122025D";
 
         private void OnLoad() {appVersion.Text = $"{Application.ProductVersion} ({buildNumber})";}
+
+        private ToolStrip toolStrip1;
+        private ToolTip toolTipAbout;
+        private System.ComponentModel.IContainer components;
     }
 }

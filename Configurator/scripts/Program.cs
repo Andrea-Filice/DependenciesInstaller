@@ -1,4 +1,5 @@
 ﻿using Configurator.Exceptions;
+using Microsoft.WindowsAPICodePack.Taskbar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,11 +23,16 @@ namespace Configurator
 
         public static async Task BuildApplication(string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton, PictureBox buildIcon)
         {
+            //Windows Taskbar values
+            TaskbarProgressBarState _state;
+
             //Variables
             string baseFolderPath, gamePath;
             DateTime timeStarted = DateTime.Now, timeEnded;
 
             //Setting-up the UI
+            _state = TaskbarProgressBarState.Normal;
+            UpdateTaskbar(progressBar.Value, _state);
             buildLogs.Visible = true;
             progressBar.Visible = true;
             baseButton.Visible = false;
@@ -37,6 +43,8 @@ namespace Configurator
                 MessageBox.Show("Error during the build of Installer.exe. Error 404: Folder Not Found or Empty.", "Build Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 buildLogs.Text = $"{GetCurrentDate()}: ERROR 404: Folder not found.";
                 buildLogs.ForeColor = Color.Red;
+                _state = TaskbarProgressBarState.Error;
+                UpdateTaskbar(progressBar.Value, _state);
             }
             else
             {
@@ -44,6 +52,8 @@ namespace Configurator
                 buildLogs.ForeColor = Color.DarkCyan;
                 buildLogs.Text = $"{GetCurrentDate()}: Starting building Installer.exe...";
                 progressBar.Value = 20;
+                _state = TaskbarProgressBarState.Normal;
+                UpdateTaskbar(progressBar.Value, _state);
 
                 await Task.Delay(2500);
 
@@ -52,6 +62,8 @@ namespace Configurator
                 buildLogs.Text = $"{GetCurrentDate()}: Finding base Path...";
                 Console.WriteLine(GetCurrentDate() + ": Base Folder: " + baseFolderPath);
                 progressBar.Value = 40;
+                _state = TaskbarProgressBarState.Normal;
+                UpdateTaskbar(progressBar.Value, _state);
 
                 await Task.Delay(1000);
 
@@ -61,9 +73,15 @@ namespace Configurator
                 if (!Directory.Exists(gamePath))
                     Directory.CreateDirectory(gamePath);
                 else
+                {
                     MessageBox.Show($"A folder with the name of \"Game\" already exists. The program will copy files into that folder.", "Build Paused", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    _state = TaskbarProgressBarState.Paused;
+                    UpdateTaskbar(progressBar.Value, _state);
+                }
                 buildLogs.Text = $"{GetCurrentDate()}: Creating Game folder...";
                 progressBar.Value = 50;
+                _state = TaskbarProgressBarState.Normal;
+                UpdateTaskbar(progressBar.Value, _state);
 
                 await Task.Delay(1000);
 
@@ -106,6 +124,8 @@ namespace Configurator
                     }
                 }
                 progressBar.Value = 60;
+                _state = TaskbarProgressBarState.Normal;
+                UpdateTaskbar(progressBar.Value, _state);
 
                 await Task.Delay(2000);
 
@@ -144,6 +164,8 @@ namespace Configurator
                     }
                 }
                 progressBar.Value = 70;
+                _state = TaskbarProgressBarState.Normal;
+                UpdateTaskbar(progressBar.Value, _state);
 
                 await Task.Delay(2000);
 
@@ -174,6 +196,8 @@ namespace Configurator
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 80;
+                _state = TaskbarProgressBarState.Normal;
+                UpdateTaskbar(progressBar.Value, _state);
 
                 await Task.Delay(1000);
 
@@ -200,6 +224,8 @@ namespace Configurator
                         buildLogs.ForeColor = Color.Red;
                         buildLogs.AutoEllipsis = true;
                         buildLogs.Text = $"{GetCurrentDate()}: BUILD FAILED! Error: Installer.exe already exists.";
+                        _state = TaskbarProgressBarState.Error;
+                        UpdateTaskbar(progressBar.Value, _state);
                         await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
                     }
                     else
@@ -221,6 +247,8 @@ namespace Configurator
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 90;
+                _state = TaskbarProgressBarState.Normal;
+                UpdateTaskbar(progressBar.Value, _state);
 
                 await Task.Delay(1000);
 
@@ -235,9 +263,14 @@ namespace Configurator
 
                 //Setting-up the UI
                 progressBar.Value = 100;
+                _state = TaskbarProgressBarState.Normal;
+                UpdateTaskbar(progressBar.Value, _state);
                 buildLogs.ForeColor = Color.Green;
                 executeButton.Visible = true;
                 buildLogs.Text = $"{GetCurrentDate()}: BUILD SUCCEEDED! (Time elapsed: {timeElapsedMinutes}:{timeElapsedSeconds})";
+
+                //Updating variables
+                using(var f = new Config()) {f.buildInProgress = false;}
 
                 //Check if the option for executing after build is enabled.
                 using(var f = new Options())
@@ -252,6 +285,14 @@ namespace Configurator
                 //Reset UI
                 await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
             }
+        }
+
+        public static void UpdateTaskbar(int value, TaskbarProgressBarState _state)
+        {
+            var taskbar = TaskbarManager.Instance;
+
+            taskbar.SetProgressState(_state);
+            taskbar.SetProgressValue(value, 100);
         }
 
         public static void Execute(string path)
@@ -279,6 +320,8 @@ namespace Configurator
 
         public static async Task ResetUI(Label logs, ProgressBar bar, Button executeButton, Button buildButton, PictureBox buildIcon)
         {
+            //Updating variables
+            using (var f = new Config()) { f.buildInProgress = false; }
             await Task.Delay(3000);
             logs.Visible = false;
             bar.Visible = false;
@@ -287,6 +330,7 @@ namespace Configurator
             buildButton.Enabled = true;
             buildButton.BackColor = Color.Black;
             buildIcon.Visible = true;
+            UpdateTaskbar(bar.Value, TaskbarProgressBarState.NoProgress);
         }
         public static string GetCurrentDate()
         {

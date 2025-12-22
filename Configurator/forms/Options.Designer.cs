@@ -4,7 +4,6 @@ namespace Configurator
 {
     partial class Options
     {
-        private readonly System.ComponentModel.IContainer components = null;
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -17,6 +16,7 @@ namespace Configurator
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.optionsText = new System.Windows.Forms.Label();
@@ -27,6 +27,7 @@ namespace Configurator
             this.infoOpt1 = new System.Windows.Forms.PictureBox();
             this.infoOpt2 = new System.Windows.Forms.PictureBox();
             this.versionIcon = new System.Windows.Forms.PictureBox();
+            this.toolTipOptions = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoOpt1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoOpt2)).BeginInit();
@@ -81,12 +82,13 @@ namespace Configurator
             this.eacVersions.Font = new System.Drawing.Font("Clash Display Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eacVersions.FormattingEnabled = true;
             this.eacVersions.Items.AddRange(new object[] {
-            "v. Latest (November, da4a22a2247c38)",
-            "v. October (2d6b9876e10f1b)"});
+            "v. Latest (December, c935ac1c65ef14)",
+            "v. November (da4a22a2247c38)"});
             this.eacVersions.Location = new System.Drawing.Point(14, 186);
             this.eacVersions.Name = "eacVersions";
             this.eacVersions.Size = new System.Drawing.Size(347, 23);
             this.eacVersions.TabIndex = 4;
+            this.toolTipOptions.SetToolTip(this.eacVersions, "Select the version of EAC for your project");
             // 
             // versionText
             // 
@@ -107,6 +109,7 @@ namespace Configurator
             this.infoOpt1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.infoOpt1.TabIndex = 6;
             this.infoOpt1.TabStop = false;
+            this.toolTipOptions.SetToolTip(this.infoOpt1, "More info");
             this.infoOpt1.Click += new System.EventHandler(this.infoOpt1_Click);
             // 
             // infoOpt2
@@ -118,6 +121,7 @@ namespace Configurator
             this.infoOpt2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.infoOpt2.TabIndex = 7;
             this.infoOpt2.TabStop = false;
+            this.toolTipOptions.SetToolTip(this.infoOpt2, "More info\r\n");
             this.infoOpt2.Click += new System.EventHandler(this.infoOpt2_Click);
             // 
             // versionIcon
@@ -171,5 +175,7 @@ namespace Configurator
         private System.Windows.Forms.PictureBox infoOpt1;
         private System.Windows.Forms.PictureBox infoOpt2;
         private System.Windows.Forms.PictureBox versionIcon;
+        private System.Windows.Forms.ToolTip toolTipOptions;
+        private System.ComponentModel.IContainer components;
     }
 }
