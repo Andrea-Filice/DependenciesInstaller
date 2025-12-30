@@ -6,3 +6,5 @@
 [3406819] Fixed an issue where the same popup would open twice.
 [83b07b1] Added the version number in Installer.exe.
 [2638050] Small performance improvements.
+[c5a65a2] Fixed an issue where the “Execute” button was visible even if the build failed.
+[8533c47] Fixed an issue with the TaskBar not resetting correctly at the end of the build.
