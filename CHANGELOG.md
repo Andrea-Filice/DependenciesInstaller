@@ -1,10 +1,8 @@
-# Dependencies Installer 2.1.1.1
-
-# Stack Upgrades
-- **EAC Core (v. December 2025, c935ac1c65ef14).**
+# Dependencies Installer 2.1.1.2
 
 # Bug Fixes
-[9fd63f0] Added Tooltips.
-[7d888cf] Added functionality where you can now see the build progress in the Windows TaskBar as well.
-[b874a15] Unused resources removed.
-[d46c867] Added a pop-up to confirm exit from the application.
+[58e07bd] Fixed an issue where clicking “No” on the popup to exit would exit the application.
+[4b91424] Fixed an issue where it did not update the build status correctly (whether it was active or finished).
+[3406819] Fixed an issue where the same popup would open twice.
+[83b07b1] Added the version number in Installer.exe.
+[2638050] Small performance improvements.
