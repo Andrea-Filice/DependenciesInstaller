@@ -74,7 +74,6 @@ namespace Configurator
         {
             if (buildInProgress)
             {
-                Console.WriteLine(": " + buildInProgress);
                 var msg = MessageBox.Show("There is a build currently running, are you sure you want to exit?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 
                 if (msg == DialogResult.Yes)

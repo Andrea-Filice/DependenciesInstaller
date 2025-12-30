@@ -428,15 +428,15 @@ namespace Configurator
             buildIcon.Visible = false;
             buildInProgress = true;
             Console.WriteLine(buildInProgress);
-            await Program.BuildApplication(this, selectedPath, buildLogs, progressBar, buildButton, executeButton, buildIcon);
+            await Program.BuildApplication(this, selectedPath);
         }
 
         private void ExecuteProgram() {Program.Execute(selectedPath);}
 
-        private Label infoLabel;
-        private Label buildLogs;
-        private ProgressBar progressBar;
-        private Button executeButton;
+        internal Label infoLabel;
+        internal Label buildLogs;
+        internal ProgressBar progressBar;
+        internal Button executeButton;
         internal Button buildButton;
         private Label versionNumber;
         private MenuStrip menuBar;
@@ -464,7 +464,7 @@ namespace Configurator
         }
 
         private PictureBox iconAdd;
-        private PictureBox buildIcon;
+        internal PictureBox buildIcon;
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem windowToolStripMenuItem;
         private ToolStripMenuItem minimizeToolStripMenuItem;
