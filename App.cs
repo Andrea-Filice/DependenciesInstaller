@@ -13,7 +13,7 @@ namespace Installer
 
         static void Main(string[] args)
         {
-            Console.WriteLine($"{DateTime.Now}: -- DEPENDENCIES INSTALLER {Assembly.GetExecutingAssembly().GetName().Version} --");
+            Console.WriteLine($"{getCurrentDate()}: -- DEPENDENCIES INSTALLER {Assembly.GetExecutingAssembly().GetName().Version} --");
 
             string programPath = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -32,7 +32,7 @@ namespace Installer
 
             try
             {
-                Console.WriteLine($"{DateTime.Now}: Starting the .bat installer with admin privileges...");
+                Console.WriteLine($"{getCurrentDate()}: Starting the .bat installer with admin privileges...");
                 //STARTING .BAT INSTALLER
                 if (!File.Exists(savedDataPath))
                 {
@@ -42,14 +42,14 @@ namespace Installer
                     psi.UseShellExecute = true;
 
                     using (Process p = Process.Start(psi)) {p.WaitForExit();}
-                    File.WriteAllText(savedDataPath, $"Installation complete: {DateTime.Now}, DO NOT DELETE THIS FILE.");
+                    File.WriteAllText(savedDataPath, $"Installation complete: {getCurrentDate()}, DO NOT DELETE THIS FILE.");
                 }
 
                 //STARTING THE GAME
-                Console.WriteLine($"{DateTime.Now}: Starting the .exe program...");
+                Console.WriteLine($"{getCurrentDate()}: Starting the .exe program...");
                 Process.Start(exePath);
 
-                Console.WriteLine($"{DateTime.Now}: Everything completed successfully!");
+                Console.WriteLine($"{getCurrentDate()}: Everything completed successfully!");
                 Environment.Exit(0);
             }
             catch (FileNotFoundException ex)
@@ -58,5 +58,7 @@ namespace Installer
                 Environment.Exit(0);
             }
         }
+
+        static string getCurrentDate() {return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");}
     }
 }
