@@ -288,7 +288,11 @@ namespace Configurator
             var taskbar = TaskbarManager.Instance;
 
             taskbar.SetProgressState(_state);
-            taskbar.SetProgressValue(value, 100);
+
+            if(_state == TaskbarProgressBarState.NoProgress)
+                taskbar.SetProgressValue(0, 100);
+            else
+                taskbar.SetProgressValue(value, 100);
         }
 
         public static void Execute(string path)
