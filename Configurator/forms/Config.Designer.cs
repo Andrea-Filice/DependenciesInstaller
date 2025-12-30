@@ -449,8 +449,9 @@ namespace Configurator
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem bugReportToolStripMenuItem;
 
-        private void Start() //NOTE: Called within the InitializeComponents method
+        private void Start()
         {
+            //NOTE: Called within the InitializeComponents method
             versionNumber.Text = "Dependencies Installer v. " + Application.ProductVersion;
 
             //NOTE: Read options on start

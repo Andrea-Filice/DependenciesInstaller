@@ -78,7 +78,7 @@ namespace Configurator
                 var msg = MessageBox.Show("There is a build currently running, are you sure you want to exit?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 
                 if (msg == DialogResult.Yes)
-                    Application.Exit();
+                    e.Cancel = false;
                 else
                     e.Cancel = true;
             }
