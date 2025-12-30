@@ -225,6 +225,7 @@ namespace Configurator
                         _state = TaskbarProgressBarState.Error;
                         UpdateTaskbar(form.progressBar.Value, _state);
                         await ResetUI(form);
+                        form.buildInProgress = false;
                     }
                     else
                     {
@@ -264,7 +265,7 @@ namespace Configurator
                 _state = TaskbarProgressBarState.Normal;
                 UpdateTaskbar(form.progressBar.Value, _state);
                 form.buildLogs.ForeColor = Color.Green;
-                form.executeButton.Visible = true;
+                form.executeButton.Visible = form.buildInProgress;
                 form.buildLogs.Text = $"{GetCurrentDate()}: BUILD SUCCEEDED! (Time elapsed: {timeElapsedMinutes}:{timeElapsedSeconds})";
 
                 //Updating variables
