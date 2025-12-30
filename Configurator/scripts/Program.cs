@@ -21,7 +21,7 @@ namespace Configurator
             Application.Run(new Config());
         }
 
-        public static async Task BuildApplication(string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton, PictureBox buildIcon)
+        public static async Task BuildApplication(Config form, string path, Label buildLogs, ProgressBar progressBar, Button baseButton, Button executeButton, PictureBox buildIcon)
         {
             //Windows Taskbar values
             TaskbarProgressBarState _state;
@@ -114,12 +114,12 @@ namespace Configurator
                     try {File.Move(fileToMove, dstFile);}
                     catch (IOException ex)
                     {
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
+                        await ResetUI(form, buildLogs, progressBar, executeButton, baseButton, buildIcon);
                         throw new BuildFailedException(buildLogs, ex);
                     }
                     catch(UnauthorizedAccessException ex)
                     {
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
+                        await ResetUI(form, buildLogs, progressBar, executeButton, baseButton, buildIcon);
                         throw new BuildFailedException(buildLogs, ex);
                     }
                 }
@@ -158,7 +158,7 @@ namespace Configurator
                             ex is ArgumentException
                         )
                         {
-                            await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
+                            await ResetUI(form, buildLogs, progressBar, executeButton, baseButton, buildIcon);
                             throw new BuildFailedException(buildLogs, ex);
                         }
                     }
@@ -180,7 +180,7 @@ namespace Configurator
                 {
                     if (File.Exists(destinationPath))
                     {
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
+                        await ResetUI(form, buildLogs, progressBar, executeButton, baseButton, buildIcon);
                         throw new BuildFailedException(buildLogs, null);
                     }
                     else
@@ -192,7 +192,7 @@ namespace Configurator
                     ex is PathTooLongException
                 )
                 {
-                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
+                    await ResetUI(form, buildLogs, progressBar, executeButton, baseButton, buildIcon);
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 80;
@@ -226,7 +226,7 @@ namespace Configurator
                         buildLogs.Text = $"{GetCurrentDate()}: BUILD FAILED! Error: Installer.exe already exists.";
                         _state = TaskbarProgressBarState.Error;
                         UpdateTaskbar(progressBar.Value, _state);
-                        await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
+                        await ResetUI(form, buildLogs, progressBar, executeButton, baseButton, buildIcon);
                     }
                     else
                     {
@@ -243,7 +243,7 @@ namespace Configurator
                     ex is NotSupportedException
                 )
                 {
-                    await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
+                    await ResetUI(form, buildLogs, progressBar, executeButton, baseButton, buildIcon);
                     throw new BuildFailedException(buildLogs, ex);
                 }
                 progressBar.Value = 90;
@@ -270,10 +270,10 @@ namespace Configurator
                 buildLogs.Text = $"{GetCurrentDate()}: BUILD SUCCEEDED! (Time elapsed: {timeElapsedMinutes}:{timeElapsedSeconds})";
 
                 //Updating variables
-                using(var f = new Config()) {f.buildInProgress = false;}
+                form.buildInProgress = false;
 
                 //Check if the option for executing after build is enabled.
-                using(var f = new Options())
+                using (var f = new Options())
                 {
                     if (f.onBuild.Checked)
                     {
@@ -283,7 +283,7 @@ namespace Configurator
                 }
 
                 //Reset UI
-                await ResetUI(buildLogs, progressBar, executeButton, baseButton, buildIcon);
+                await ResetUI(form, buildLogs, progressBar, executeButton, baseButton, buildIcon);
             }
         }
 
@@ -318,10 +318,10 @@ namespace Configurator
             }
         }
 
-        public static async Task ResetUI(Label logs, ProgressBar bar, Button executeButton, Button buildButton, PictureBox buildIcon)
+        public static async Task ResetUI(Config form, Label logs, ProgressBar bar, Button executeButton, Button buildButton, PictureBox buildIcon)
         {
             //Updating variables
-            using (var f = new Config()) { f.buildInProgress = false; }
+            form.buildInProgress = false;
             await Task.Delay(3000);
             logs.Visible = false;
             bar.Visible = false;

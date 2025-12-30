@@ -428,7 +428,7 @@ namespace Configurator
             buildIcon.Visible = false;
             buildInProgress = true;
             Console.WriteLine(buildInProgress);
-            await Program.BuildApplication(selectedPath, buildLogs, progressBar, buildButton, executeButton, buildIcon);
+            await Program.BuildApplication(this, selectedPath, buildLogs, progressBar, buildButton, executeButton, buildIcon);
         }
 
         private void ExecuteProgram() {Program.Execute(selectedPath);}
