@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace Installer
@@ -12,6 +13,8 @@ namespace Installer
 
         static void Main(string[] args)
         {
+            Console.WriteLine($"{DateTime.Now}: -- DEPENDENCIES INSTALLER {Assembly.GetExecutingAssembly().GetName().Version} --");
+
             string programPath = AppDomain.CurrentDomain.BaseDirectory;
 
             //CHECK FOR THE .BAT FILE VERSION
