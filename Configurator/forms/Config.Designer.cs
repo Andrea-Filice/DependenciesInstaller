@@ -428,15 +428,15 @@ namespace Configurator
             buildIcon.Visible = false;
             buildInProgress = true;
             Console.WriteLine(buildInProgress);
-            await Program.BuildApplication(selectedPath, buildLogs, progressBar, buildButton, executeButton, buildIcon);
+            await Program.BuildApplication(this, selectedPath);
         }
 
         private void ExecuteProgram() {Program.Execute(selectedPath);}
 
-        private Label infoLabel;
-        private Label buildLogs;
-        private ProgressBar progressBar;
-        private Button executeButton;
+        internal Label infoLabel;
+        internal Label buildLogs;
+        internal ProgressBar progressBar;
+        internal Button executeButton;
         internal Button buildButton;
         private Label versionNumber;
         private MenuStrip menuBar;
@@ -449,8 +449,9 @@ namespace Configurator
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem bugReportToolStripMenuItem;
 
-        private void Start() //NOTE: Called within the InitializeComponents method
+        private void Start()
         {
+            //NOTE: Called within the InitializeComponents method
             versionNumber.Text = "Dependencies Installer v. " + Application.ProductVersion;
 
             //NOTE: Read options on start
@@ -463,7 +464,7 @@ namespace Configurator
         }
 
         private PictureBox iconAdd;
-        private PictureBox buildIcon;
+        internal PictureBox buildIcon;
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem windowToolStripMenuItem;
         private ToolStripMenuItem minimizeToolStripMenuItem;
