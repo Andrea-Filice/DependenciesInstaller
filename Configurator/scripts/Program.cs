@@ -113,12 +113,13 @@ namespace Configurator
 
                     //Error handling
                     try {File.Move(fileToMove, dstFile);}
-                    catch (IOException ex)
-                    {
-                        await ResetUI(form);
-                        throw new BuildFailedException(form.buildLogs, ex);
-                    }
-                    catch(UnauthorizedAccessException ex)
+                    catch(Exception ex) when(
+                        ex is DirectoryNotFoundException ||
+                        ex is PathTooLongException ||
+                        ex is ArgumentException ||
+                        ex is IOException ||
+                        ex is UnauthorizedAccessException
+                    )
                     {
                         await ResetUI(form);
                         throw new BuildFailedException(form.buildLogs, ex);
@@ -207,12 +208,11 @@ namespace Configurator
                 string currentVersion = "";
 
                 currentVersion = options.ReadKey("versionSelected");
-                if (currentVersion == "0")
-                    batPersistentDirectory = Path.Combine(applicationDirectory, "Install_EasyAntiCheat.bat");
-                else if (currentVersion == "1")
-                    batPersistentDirectory = Path.Combine(applicationDirectory, "Install_EasyAntiCheat_old.bat");
 
-                form.buildLogs.Text = $"{GetCurrentDate()}: Installing \"Install_EasyAntiCheat.bat\"...";
+                string nameBatFile = (currentVersion == "0") ? "Install_EasyAntiCheat.bat" : "Install_EasyAntiCheat_old.bat";
+                batPersistentDirectory = Path.Combine(applicationDirectory, nameBatFile);
+
+                form.buildLogs.Text = $"{GetCurrentDate()}: Installing \"{nameBatFile}\"...";
 
                 try
                 {
@@ -228,12 +228,7 @@ namespace Configurator
                         form.buildInProgress = false;
                     }
                     else
-                    {
-                        if (currentVersion == "0")
-                            File.Copy(batPersistentDirectory, Path.Combine(gamePath, "Install_EasyAntiCheat.bat"));
-                        else if (currentVersion == "1")
-                            File.Copy(batPersistentDirectory, Path.Combine(gamePath, "Install_EasyAntiCheat_old.bat"));
-                    }
+                        File.Copy(batPersistentDirectory, Path.Combine(gamePath, nameBatFile));
                 }
                 catch (Exception ex) when(
                     ex is IOException ||

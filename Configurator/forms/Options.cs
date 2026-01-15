@@ -74,9 +74,13 @@ namespace Configurator
                 var maxIndex = Math.Max(0, eacVersions.Items.Count - 1);
                 eacVersions.SelectedIndex = Math.Min(maxIndex, Math.Max(0, valueDropDown));
             }
-            catch (ConfigurationErrorsException ex) {throw new ErrorGeneratedException(ex);}
-            catch (IOException ex) {throw new ErrorGeneratedException(ex);}
-            catch (UnauthorizedAccessException ex) {throw new ErrorGeneratedException(ex);}
+            catch(Exception ex) when(
+            ex is ConfigurationErrorsException ||
+            ex is IOException ||
+            ex is UnauthorizedAccessException)
+            {
+                throw new ErrorGeneratedException(ex);
+            }
         }
 
         public string ReadKey(string key)
@@ -88,9 +92,13 @@ namespace Configurator
                     return v;
                 return null;
             }
-            catch (ConfigurationErrorsException ex) {throw new ErrorGeneratedException(ex);}
-            catch (UnauthorizedAccessException ex) {throw new ErrorGeneratedException(ex);}
-            catch (IOException ex){throw new ErrorGeneratedException(ex);}
+            catch(Exception ex) when
+            (   ex is ConfigurationErrorsException ||
+                ex is UnauthorizedAccessException ||
+                ex is IOException)
+            {
+                throw new ErrorGeneratedException(ex);
+            }
         }
 
         private string GetAppDataFilePath()
@@ -104,6 +112,7 @@ namespace Configurator
         {
             var filePath = GetAppDataFilePath();
             var dict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
             if (!File.Exists(filePath))
                 return dict;
 
