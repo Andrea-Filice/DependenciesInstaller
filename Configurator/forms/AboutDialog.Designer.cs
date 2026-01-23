@@ -111,7 +111,7 @@ namespace Configurator.forms
         private System.Windows.Forms.Label appName;
         private System.Windows.Forms.Label appVersion;
         private System.Windows.Forms.Button buttonOK;
-        private readonly string buildNumber = "30122025E";
+        private readonly string buildNumber = "15012026F";
 
         private void OnLoad() {appVersion.Text = $"{Application.ProductVersion} ({buildNumber})";}
 

@@ -82,8 +82,8 @@ namespace Configurator
             this.eacVersions.Font = new System.Drawing.Font("Clash Display Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eacVersions.FormattingEnabled = true;
             this.eacVersions.Items.AddRange(new object[] {
-            "v. Latest (December, c935ac1c65ef14)",
-            "v. November (da4a22a2247c38)"});
+            "v. Latest (January 2026, be2efb9dd6ee25)",
+            "v. December (c935ac1c65ef14)"});
             this.eacVersions.Location = new System.Drawing.Point(14, 186);
             this.eacVersions.Name = "eacVersions";
             this.eacVersions.Size = new System.Drawing.Size(347, 23);
