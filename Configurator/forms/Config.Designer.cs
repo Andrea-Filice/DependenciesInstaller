@@ -41,12 +41,13 @@ namespace Configurator
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.visitWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bugReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.websiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.visitWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iconAdd = new System.Windows.Forms.PictureBox();
             this.buildIcon = new System.Windows.Forms.PictureBox();
             this.dependenciesIcon = new System.Windows.Forms.PictureBox();
@@ -196,7 +197,6 @@ namespace Configurator
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.windowToolStripMenuItem,
-            this.aboutToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
@@ -250,34 +250,13 @@ namespace Configurator
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem1,
-            this.visitWebsiteToolStripMenuItem});
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
-            this.aboutToolStripMenuItem.Text = "Info";
-            // 
-            // aboutToolStripMenuItem1
-            // 
-            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(175, 26);
-            this.aboutToolStripMenuItem1.Text = "About";
-            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
-            // 
-            // visitWebsiteToolStripMenuItem
-            // 
-            this.visitWebsiteToolStripMenuItem.Name = "visitWebsiteToolStripMenuItem";
-            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
-            this.visitWebsiteToolStripMenuItem.Text = "Visit website";
-            this.visitWebsiteToolStripMenuItem.Click += new System.EventHandler(this.visitWebsiteToolStripMenuItem_Click);
-            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bugReportToolStripMenuItem,
-            this.suggestionToolStripMenuItem});
+            this.suggestionToolStripMenuItem,
+            this.websiteToolStripMenuItem,
+            this.aboutToolStripMenuItem2});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
@@ -285,16 +264,40 @@ namespace Configurator
             // bugReportToolStripMenuItem
             // 
             this.bugReportToolStripMenuItem.Name = "bugReportToolStripMenuItem";
-            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bugReportToolStripMenuItem.Text = "Bug Report";
             this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
             // 
             // suggestionToolStripMenuItem
             // 
             this.suggestionToolStripMenuItem.Name = "suggestionToolStripMenuItem";
-            this.suggestionToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.suggestionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.suggestionToolStripMenuItem.Text = "Share a Suggestion";
             this.suggestionToolStripMenuItem.Click += new System.EventHandler(this.suggestionToolStripMenuItem_Click);
+            // 
+            // websiteToolStripMenuItem
+            // 
+            this.websiteToolStripMenuItem.Name = "websiteToolStripMenuItem";
+            this.websiteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.websiteToolStripMenuItem.Text = "Website";
+            this.websiteToolStripMenuItem.Click += new System.EventHandler(this.websiteToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem2
+            // 
+            this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
+            this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+            this.aboutToolStripMenuItem2.Text = "About";
+            this.aboutToolStripMenuItem2.Click += new System.EventHandler(this.aboutToolStripMenuItem2_Click);
+            // 
+            // aboutToolStripMenuItem1
+            // 
+            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(32, 19);
+            // 
+            // visitWebsiteToolStripMenuItem
+            // 
+            this.visitWebsiteToolStripMenuItem.Name = "visitWebsiteToolStripMenuItem";
+            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // iconAdd
             // 
@@ -443,7 +446,6 @@ namespace Configurator
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem checkForUpdatesToolStripMenuItem;
-        private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem1;
         private ToolStripMenuItem visitWebsiteToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
@@ -473,5 +475,7 @@ namespace Configurator
         private PictureBox warningPB;
         private ToolTip toolTip;
         private System.ComponentModel.IContainer components;
+        private ToolStripMenuItem websiteToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem2;
     }
 }

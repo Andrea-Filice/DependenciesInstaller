@@ -35,8 +35,9 @@ namespace Configurator
             else
                 Application.Exit();
         }
-        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e) {using (var f = new AboutDialog()) {f.ShowDialog();}}
-        private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://play-epik-incorporation.netlify.app/developers#dependenciesInstaller");}
+
+        private void aboutToolStripMenuItem2_Click(object sender, EventArgs e) { using (var f = new AboutDialog()) { f.ShowDialog(); } }
+        private void websiteToolStripMenuItem_Click(object sender, EventArgs e) { Process.Start("https://play-epik-incorporation.netlify.app/developers#dependenciesInstaller"); }
         private void bugReportToolStripMenuItem_Click(object sender, EventArgs e) {Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=bug");}
         private void suggestionToolStripMenuItem_Click(object sender, EventArgs e) { Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=enhancement"); }
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e) { this.WindowState = FormWindowState.Minimized; }
