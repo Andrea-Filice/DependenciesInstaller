@@ -165,13 +165,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\images\addFolder.png" />
+    <Content Include="src\images\bugIcon.png" />
+    <Content Include="src\images\exit.png" />
+    <Content Include="src\images\information.png" />
+    <Content Include="src\images\websiteIcon.png" />
     <Content Include="src\images\hammer.png" />
+    <Content Include="src\images\suggestionIcon.png" />
+    <Content Include="src\images\updatesIcon.png" />
+    <Content Include="src\images\settingsIcon_black.png" />
     <Content Include="src\images\versionsIcon.png" />
     <Content Include="src\images\settingsIcon.png" />
     <Content Include="src\images\warning.png" />
     <Content Include="src\images\dependencies.png" />
     <Content Include="src\images\icon.png" />
     <Content Include="src\images\infoIcon.png" />
+    <Content Include="src\images\minimizeIcon.png" />
     <Content Include="tools.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
