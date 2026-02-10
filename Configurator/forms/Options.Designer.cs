@@ -84,7 +84,7 @@ namespace Configurator
             this.eacVersions.Items.AddRange(new object[] {
             "v. Latest (February 2026, v2601.2)",
             "v. January (v2601.1)"});
-            this.eacVersions.Location = new System.Drawing.Point(14, 186);
+            this.eacVersions.Location = new System.Drawing.Point(12, 199);
             this.eacVersions.Name = "eacVersions";
             this.eacVersions.Size = new System.Drawing.Size(347, 23);
             this.eacVersions.TabIndex = 4;
