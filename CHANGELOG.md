@@ -1,8 +1,9 @@
 # Dependencies Installer 2.1.1.5
 
 # Stack Upgrades
-- **EAC Core (v. February 2026, v2601.2).**
-- DotNET `10.0.3`
+- **EAC Core (v. February 2026, v2602).**
+
+- dotNET `10.0.3`
   - [New in 10.0.3](https://github.com/dotnet/dotnet/releases/tag/v10.0.3)
 
 # Bug Fixes
