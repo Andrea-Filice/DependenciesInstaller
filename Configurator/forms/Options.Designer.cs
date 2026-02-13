@@ -82,9 +82,9 @@ namespace Configurator
             this.eacVersions.Font = new System.Drawing.Font("Clash Display Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eacVersions.FormattingEnabled = true;
             this.eacVersions.Items.AddRange(new object[] {
-            "v. Latest (January 2026, v2601.1)",
-            "v. December (v2512)"});
-            this.eacVersions.Location = new System.Drawing.Point(14, 186);
+            "v. Latest (February 2026, v2602)",
+            "v. January (v2601.1)"});
+            this.eacVersions.Location = new System.Drawing.Point(12, 199);
             this.eacVersions.Name = "eacVersions";
             this.eacVersions.Size = new System.Drawing.Size(347, 23);
             this.eacVersions.TabIndex = 4;
