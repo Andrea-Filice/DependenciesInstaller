@@ -18,127 +18,93 @@ namespace Configurator
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.optionsText = new System.Windows.Forms.Label();
             this.selectOnStart = new System.Windows.Forms.CheckBox();
             this.onBuild = new System.Windows.Forms.CheckBox();
             this.eacVersions = new System.Windows.Forms.ComboBox();
             this.versionText = new System.Windows.Forms.Label();
-            this.infoOpt1 = new System.Windows.Forms.PictureBox();
-            this.infoOpt2 = new System.Windows.Forms.PictureBox();
-            this.versionIcon = new System.Windows.Forms.PictureBox();
             this.toolTipOptions = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoOpt1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoOpt2)).BeginInit();
+            this.versionIcon = new System.Windows.Forms.PictureBox();
+            this.infoOpt2 = new System.Windows.Forms.PictureBox();
+            this.infoOpt1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.versionIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoOpt2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoOpt1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(90, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // optionsText
             // 
-            this.optionsText.AutoSize = true;
-            this.optionsText.Font = new System.Drawing.Font("Clash Display Medium", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optionsText.Location = new System.Drawing.Point(128, 16);
+            resources.ApplyResources(this.optionsText, "optionsText");
             this.optionsText.Name = "optionsText";
-            this.optionsText.Size = new System.Drawing.Size(125, 32);
-            this.optionsText.TabIndex = 1;
-            this.optionsText.Text = "Options";
+            this.toolTipOptions.SetToolTip(this.optionsText, resources.GetString("optionsText.ToolTip"));
             // 
             // selectOnStart
             // 
-            this.selectOnStart.AutoSize = true;
-            this.selectOnStart.Font = new System.Drawing.Font("Clash Display Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectOnStart.Location = new System.Drawing.Point(14, 70);
+            resources.ApplyResources(this.selectOnStart, "selectOnStart");
             this.selectOnStart.Name = "selectOnStart";
-            this.selectOnStart.Size = new System.Drawing.Size(337, 27);
-            this.selectOnStart.TabIndex = 2;
-            this.selectOnStart.Text = "Enable \"Select Folder on Start\"";
+            this.toolTipOptions.SetToolTip(this.selectOnStart, resources.GetString("selectOnStart.ToolTip"));
             this.selectOnStart.UseVisualStyleBackColor = true;
             // 
             // onBuild
             // 
-            this.onBuild.AutoSize = true;
-            this.onBuild.Font = new System.Drawing.Font("Clash Display Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.onBuild.Location = new System.Drawing.Point(14, 114);
+            resources.ApplyResources(this.onBuild, "onBuild");
             this.onBuild.Name = "onBuild";
-            this.onBuild.Size = new System.Drawing.Size(285, 27);
-            this.onBuild.TabIndex = 3;
-            this.onBuild.Text = "Enable \"Execute on Build\"\r\n";
+            this.toolTipOptions.SetToolTip(this.onBuild, resources.GetString("onBuild.ToolTip"));
             this.onBuild.UseVisualStyleBackColor = true;
             // 
             // eacVersions
             // 
+            resources.ApplyResources(this.eacVersions, "eacVersions");
             this.eacVersions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.eacVersions.Font = new System.Drawing.Font("Clash Display Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eacVersions.FormattingEnabled = true;
             this.eacVersions.Items.AddRange(new object[] {
-            "v. Latest (February 2026, v2602)",
-            "v. January (v2601.1)"});
-            this.eacVersions.Location = new System.Drawing.Point(12, 199);
+            resources.GetString("eacVersions.Items"),
+            resources.GetString("eacVersions.Items1")});
             this.eacVersions.Name = "eacVersions";
-            this.eacVersions.Size = new System.Drawing.Size(347, 23);
-            this.eacVersions.TabIndex = 4;
-            this.toolTipOptions.SetToolTip(this.eacVersions, "Select the version of EAC for your project");
+            this.toolTipOptions.SetToolTip(this.eacVersions, resources.GetString("eacVersions.ToolTip"));
             // 
             // versionText
             // 
-            this.versionText.AutoSize = true;
-            this.versionText.Font = new System.Drawing.Font("Clash Display Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.versionText.Location = new System.Drawing.Point(124, 162);
+            resources.ApplyResources(this.versionText, "versionText");
             this.versionText.Name = "versionText";
-            this.versionText.Size = new System.Drawing.Size(129, 21);
-            this.versionText.TabIndex = 5;
-            this.versionText.Text = "EAC Version:";
-            // 
-            // infoOpt1
-            // 
-            this.infoOpt1.Image = ((System.Drawing.Image)(resources.GetObject("infoOpt1.Image")));
-            this.infoOpt1.Location = new System.Drawing.Point(348, 73);
-            this.infoOpt1.Name = "infoOpt1";
-            this.infoOpt1.Size = new System.Drawing.Size(18, 17);
-            this.infoOpt1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.infoOpt1.TabIndex = 6;
-            this.infoOpt1.TabStop = false;
-            this.toolTipOptions.SetToolTip(this.infoOpt1, "More info");
-            this.infoOpt1.Click += new System.EventHandler(this.infoOpt1_Click);
-            // 
-            // infoOpt2
-            // 
-            this.infoOpt2.Image = ((System.Drawing.Image)(resources.GetObject("infoOpt2.Image")));
-            this.infoOpt2.Location = new System.Drawing.Point(297, 119);
-            this.infoOpt2.Name = "infoOpt2";
-            this.infoOpt2.Size = new System.Drawing.Size(18, 17);
-            this.infoOpt2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.infoOpt2.TabIndex = 7;
-            this.infoOpt2.TabStop = false;
-            this.toolTipOptions.SetToolTip(this.infoOpt2, "More info\r\n");
-            this.infoOpt2.Click += new System.EventHandler(this.infoOpt2_Click);
+            this.toolTipOptions.SetToolTip(this.versionText, resources.GetString("versionText.ToolTip"));
             // 
             // versionIcon
             // 
-            this.versionIcon.Image = ((System.Drawing.Image)(resources.GetObject("versionIcon.Image")));
-            this.versionIcon.Location = new System.Drawing.Point(97, 158);
+            resources.ApplyResources(this.versionIcon, "versionIcon");
             this.versionIcon.Name = "versionIcon";
-            this.versionIcon.Size = new System.Drawing.Size(25, 25);
-            this.versionIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.versionIcon.TabIndex = 8;
             this.versionIcon.TabStop = false;
+            this.toolTipOptions.SetToolTip(this.versionIcon, resources.GetString("versionIcon.ToolTip"));
+            // 
+            // infoOpt2
+            // 
+            resources.ApplyResources(this.infoOpt2, "infoOpt2");
+            this.infoOpt2.Name = "infoOpt2";
+            this.infoOpt2.TabStop = false;
+            this.toolTipOptions.SetToolTip(this.infoOpt2, resources.GetString("infoOpt2.ToolTip"));
+            this.infoOpt2.Click += new System.EventHandler(this.infoOpt2_Click);
+            // 
+            // infoOpt1
+            // 
+            resources.ApplyResources(this.infoOpt1, "infoOpt1");
+            this.infoOpt1.Name = "infoOpt1";
+            this.infoOpt1.TabStop = false;
+            this.toolTipOptions.SetToolTip(this.infoOpt1, resources.GetString("infoOpt1.ToolTip"));
+            this.infoOpt1.Click += new System.EventHandler(this.infoOpt1_Click);
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.toolTipOptions.SetToolTip(this.pictureBox1, resources.GetString("pictureBox1.ToolTip"));
             // 
             // Options
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 253);
             this.Controls.Add(this.versionIcon);
             this.Controls.Add(this.infoOpt2);
             this.Controls.Add(this.infoOpt1);
@@ -149,16 +115,14 @@ namespace Configurator
             this.Controls.Add(this.optionsText);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Options";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Options";
+            this.toolTipOptions.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Options_FormClosed);
             this.Load += new System.EventHandler(this.Options_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoOpt1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoOpt2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.versionIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoOpt2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoOpt1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
