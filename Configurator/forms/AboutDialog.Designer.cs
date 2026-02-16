@@ -100,7 +100,7 @@ namespace Configurator.forms
         private System.Windows.Forms.Label appName;
         private System.Windows.Forms.Label appVersion;
         private System.Windows.Forms.Button buttonOK;
-        private readonly string buildNumber = "10022026H";
+        private readonly string buildNumber = "16022026I";
 
         private void OnLoad() {appVersion.Text = $"{Application.ProductVersion} ({buildNumber})";}
         private ToolTip toolTipAbout;
