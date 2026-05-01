@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("DependenciesInstaller")]
 [assembly: AssemblyCompany("Play Epik, Incorporation")]
 [assembly: AssemblyProduct("DependenciesInstaller")]
-[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyCopyright("Copyright ©  2026")]
 
 [assembly: ComVisible(false)]
 
 
 [assembly: Guid("bef407e2-6cda-416b-a7e1-10b20ed814ba")]
 
-[assembly: AssemblyVersion("2.1.1.5")]
-[assembly: AssemblyFileVersion("2.1.1.5")]
+[assembly: AssemblyVersion("2.1.1.6")]
+[assembly: AssemblyFileVersion("2.1.1.6")]
