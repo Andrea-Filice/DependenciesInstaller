@@ -43,17 +43,17 @@ namespace Configurator.forms
             // appName
             // 
             this.appName.AutoSize = true;
-            this.appName.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appName.Font = new System.Drawing.Font("Cal Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appName.Location = new System.Drawing.Point(85, 53);
             this.appName.Name = "appName";
-            this.appName.Size = new System.Drawing.Size(228, 27);
+            this.appName.Size = new System.Drawing.Size(212, 27);
             this.appName.TabIndex = 1;
             this.appName.Text = "Dependencies Installer";
             // 
             // appVersion
             // 
             this.appVersion.AutoSize = true;
-            this.appVersion.Font = new System.Drawing.Font("Manrope", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appVersion.Font = new System.Drawing.Font("Cal Sans", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appVersion.Location = new System.Drawing.Point(85, 76);
             this.appVersion.Name = "appVersion";
             this.appVersion.Size = new System.Drawing.Size(0, 25);
@@ -61,7 +61,7 @@ namespace Configurator.forms
             // 
             // buttonOK
             // 
-            this.buttonOK.Font = new System.Drawing.Font("Manrope", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOK.Font = new System.Drawing.Font("Cal Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOK.Location = new System.Drawing.Point(391, 136);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(65, 30);
@@ -81,7 +81,7 @@ namespace Configurator.forms
             this.Controls.Add(this.appVersion);
             this.Controls.Add(this.appName);
             this.Controls.Add(this.appIcon);
-            this.Font = new System.Drawing.Font("Clash Display Medium", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Cal Sans", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

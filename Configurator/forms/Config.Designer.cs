@@ -64,28 +64,28 @@ namespace Configurator
             // 
             this.labelStart.AutoSize = true;
             this.labelStart.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelStart.Font = new System.Drawing.Font("Clash Display Medium", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStart.Font = new System.Drawing.Font("Cal Sans", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStart.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.labelStart.Location = new System.Drawing.Point(189, 47);
+            this.labelStart.Location = new System.Drawing.Point(189, 44);
             this.labelStart.Name = "labelStart";
-            this.labelStart.Size = new System.Drawing.Size(454, 38);
+            this.labelStart.Size = new System.Drawing.Size(422, 45);
             this.labelStart.TabIndex = 0;
             this.labelStart.Text = "Configure Easy-AntiCheat";
             // 
             // gameFolder
             // 
             this.gameFolder.AutoSize = true;
-            this.gameFolder.Font = new System.Drawing.Font("Clash Display Medium", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gameFolder.Location = new System.Drawing.Point(76, 98);
+            this.gameFolder.Font = new System.Drawing.Font("Cal Sans", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameFolder.Location = new System.Drawing.Point(76, 93);
             this.gameFolder.Name = "gameFolder";
-            this.gameFolder.Size = new System.Drawing.Size(172, 26);
+            this.gameFolder.Size = new System.Drawing.Size(157, 31);
             this.gameFolder.TabIndex = 1;
             this.gameFolder.Text = "Game Folder: ";
             // 
             // buttonChangeFolder
             // 
             this.buttonChangeFolder.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonChangeFolder.Font = new System.Drawing.Font("Clash Display Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChangeFolder.Font = new System.Drawing.Font("Cal Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonChangeFolder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonChangeFolder.Location = new System.Drawing.Point(631, 98);
             this.buttonChangeFolder.Name = "buttonChangeFolder";
@@ -100,20 +100,20 @@ namespace Configurator
             // folderSelected
             // 
             this.folderSelected.AutoSize = true;
-            this.folderSelected.Font = new System.Drawing.Font("Clash Display Medium", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.folderSelected.Location = new System.Drawing.Point(254, 98);
+            this.folderSelected.Font = new System.Drawing.Font("Cal Sans", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.folderSelected.Location = new System.Drawing.Point(239, 93);
             this.folderSelected.Name = "folderSelected";
-            this.folderSelected.Size = new System.Drawing.Size(228, 26);
+            this.folderSelected.Size = new System.Drawing.Size(205, 31);
             this.folderSelected.TabIndex = 3;
             this.folderSelected.Text = "No folder selected.";
             // 
             // infoLabel
             // 
-            this.infoLabel.Font = new System.Drawing.Font("Clash Display Medium", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoLabel.Font = new System.Drawing.Font("Cal Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoLabel.ForeColor = System.Drawing.Color.Red;
-            this.infoLabel.Location = new System.Drawing.Point(38, 371);
+            this.infoLabel.Location = new System.Drawing.Point(78, 371);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(726, 42);
+            this.infoLabel.Size = new System.Drawing.Size(627, 70);
             this.infoLabel.TabIndex = 4;
             this.infoLabel.Text = "Check the supported versions of Easy Anti-Cheat by going to “File” > “Options” an" +
     "d select one (RECOMMENDED: The latest version is already selected by default).";
@@ -124,7 +124,7 @@ namespace Configurator
             this.buildButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.buildButton.CausesValidation = false;
             this.buildButton.Enabled = false;
-            this.buildButton.Font = new System.Drawing.Font("Clash Display Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buildButton.Font = new System.Drawing.Font("Cal Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buildButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buildButton.Location = new System.Drawing.Point(207, 320);
             this.buildButton.Name = "buildButton";
@@ -166,7 +166,7 @@ namespace Configurator
             // executeButton
             // 
             this.executeButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.executeButton.Font = new System.Drawing.Font("Clash Display Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.executeButton.Font = new System.Drawing.Font("Cal Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.executeButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.executeButton.Location = new System.Drawing.Point(317, 246);
             this.executeButton.Name = "executeButton";
@@ -200,7 +200,7 @@ namespace Configurator
             this.helpToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(800, 30);
+            this.menuBar.Size = new System.Drawing.Size(800, 28);
             this.menuBar.TabIndex = 10;
             this.menuBar.Text = "menu";
             // 
@@ -211,7 +211,7 @@ namespace Configurator
             this.optionsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
             this.toolStripMenuItem1.Text = "File";
             // 
             // checkForUpdatesToolStripMenuItem
@@ -243,7 +243,7 @@ namespace Configurator
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.minimizeToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.windowToolStripMenuItem.Text = "Window";
             // 
             // minimizeToolStripMenuItem
@@ -262,7 +262,7 @@ namespace Configurator
             this.websiteToolStripMenuItem,
             this.aboutToolStripMenuItem2});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // bugReportToolStripMenuItem
@@ -345,9 +345,9 @@ namespace Configurator
             // warningPB
             // 
             this.warningPB.Image = ((System.Drawing.Image)(resources.GetObject("warningPB.Image")));
-            this.warningPB.Location = new System.Drawing.Point(16, 380);
+            this.warningPB.Location = new System.Drawing.Point(36, 385);
             this.warningPB.Name = "warningPB";
-            this.warningPB.Size = new System.Drawing.Size(28, 27);
+            this.warningPB.Size = new System.Drawing.Size(36, 34);
             this.warningPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.warningPB.TabIndex = 14;
             this.warningPB.TabStop = false;

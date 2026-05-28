@@ -47,20 +47,20 @@ namespace Configurator
             // optionsText
             // 
             this.optionsText.AutoSize = true;
-            this.optionsText.Font = new System.Drawing.Font("Clash Display Medium", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optionsText.Location = new System.Drawing.Point(128, 16);
+            this.optionsText.Font = new System.Drawing.Font("Cal Sans", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.optionsText.Location = new System.Drawing.Point(128, 9);
             this.optionsText.Name = "optionsText";
-            this.optionsText.Size = new System.Drawing.Size(125, 32);
+            this.optionsText.Size = new System.Drawing.Size(122, 38);
             this.optionsText.TabIndex = 1;
             this.optionsText.Text = "Options";
             // 
             // selectOnStart
             // 
             this.selectOnStart.AutoSize = true;
-            this.selectOnStart.Font = new System.Drawing.Font("Clash Display Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectOnStart.Font = new System.Drawing.Font("Cal Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectOnStart.Location = new System.Drawing.Point(14, 70);
             this.selectOnStart.Name = "selectOnStart";
-            this.selectOnStart.Size = new System.Drawing.Size(337, 27);
+            this.selectOnStart.Size = new System.Drawing.Size(296, 31);
             this.selectOnStart.TabIndex = 2;
             this.selectOnStart.Text = "Enable \"Select Folder on Start\"";
             this.selectOnStart.UseVisualStyleBackColor = true;
@@ -68,10 +68,10 @@ namespace Configurator
             // onBuild
             // 
             this.onBuild.AutoSize = true;
-            this.onBuild.Font = new System.Drawing.Font("Clash Display Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onBuild.Font = new System.Drawing.Font("Cal Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.onBuild.Location = new System.Drawing.Point(14, 114);
             this.onBuild.Name = "onBuild";
-            this.onBuild.Size = new System.Drawing.Size(285, 27);
+            this.onBuild.Size = new System.Drawing.Size(252, 31);
             this.onBuild.TabIndex = 3;
             this.onBuild.Text = "Enable \"Execute on Build\"\r\n";
             this.onBuild.UseVisualStyleBackColor = true;
@@ -79,31 +79,31 @@ namespace Configurator
             // eacVersions
             // 
             this.eacVersions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.eacVersions.Font = new System.Drawing.Font("Clash Display Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eacVersions.Font = new System.Drawing.Font("Cal Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eacVersions.FormattingEnabled = true;
             this.eacVersions.Items.AddRange(new object[] {
             "v. Latest (May 2026, v2605.0)",
             "v. March (v2604.1)"});
             this.eacVersions.Location = new System.Drawing.Point(12, 199);
             this.eacVersions.Name = "eacVersions";
-            this.eacVersions.Size = new System.Drawing.Size(347, 23);
+            this.eacVersions.Size = new System.Drawing.Size(347, 26);
             this.eacVersions.TabIndex = 4;
             this.toolTipOptions.SetToolTip(this.eacVersions, "Select the version of EAC for your project");
             // 
             // versionText
             // 
             this.versionText.AutoSize = true;
-            this.versionText.Font = new System.Drawing.Font("Clash Display Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.versionText.Location = new System.Drawing.Point(124, 162);
+            this.versionText.Font = new System.Drawing.Font("Cal Sans", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.versionText.Location = new System.Drawing.Point(127, 158);
             this.versionText.Name = "versionText";
-            this.versionText.Size = new System.Drawing.Size(129, 21);
+            this.versionText.Size = new System.Drawing.Size(123, 25);
             this.versionText.TabIndex = 5;
             this.versionText.Text = "EAC Version:";
             // 
             // infoOpt1
             // 
             this.infoOpt1.Image = ((System.Drawing.Image)(resources.GetObject("infoOpt1.Image")));
-            this.infoOpt1.Location = new System.Drawing.Point(348, 73);
+            this.infoOpt1.Location = new System.Drawing.Point(306, 78);
             this.infoOpt1.Name = "infoOpt1";
             this.infoOpt1.Size = new System.Drawing.Size(18, 17);
             this.infoOpt1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -115,7 +115,7 @@ namespace Configurator
             // infoOpt2
             // 
             this.infoOpt2.Image = ((System.Drawing.Image)(resources.GetObject("infoOpt2.Image")));
-            this.infoOpt2.Location = new System.Drawing.Point(297, 119);
+            this.infoOpt2.Location = new System.Drawing.Point(264, 122);
             this.infoOpt2.Name = "infoOpt2";
             this.infoOpt2.Size = new System.Drawing.Size(18, 17);
             this.infoOpt2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
