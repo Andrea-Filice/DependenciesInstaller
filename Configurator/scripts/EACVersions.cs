@@ -2,6 +2,6 @@
 {
     public class EACVersions
     {
-        public static string[] compatibleVersions = { "v2606", "v2605" };
+        public static string[] compatibleVersions = { "v2607", "v2606" };
     }
 }
