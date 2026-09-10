@@ -297,10 +297,10 @@ namespace Configurator
 
             try
             {
-                //NOTE: Create the ProcessStartInfo element with UseShellExecute set to false, however this doesn't work.
                 var psi = new ProcessStartInfo
                 {
                     FileName = executablePath,
+                    WorkingDirectory = path,
                     UseShellExecute = false
                 };
 
