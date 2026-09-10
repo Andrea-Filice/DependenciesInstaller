@@ -150,7 +150,7 @@ namespace Configurator
                             Directory.Move(folderPath, dstFolder);
                             currentlyMoved++;
 
-                            form.buildLogs.Text = $"{GetCurrentDate()}: Moving folders ({folders.Length-1}/{currentlyMoved})...";
+                            form.buildLogs.Text = $"{GetCurrentDate()}: Moving folders ({currentlyMoved}/{folders.Length - 1})...";
                         }
                         catch (Exception ex) when(
                             ex is IOException ||
