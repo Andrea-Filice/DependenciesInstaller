@@ -23,7 +23,7 @@ namespace Configurator
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e) {using (var f = new Options()) {f.ShowDialog();}}
 
         //NOTE: CONTEXT MENU ACTIONS
-        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (buildInProgress)
             {
@@ -42,7 +42,7 @@ namespace Configurator
         private void suggestionToolStripMenuItem_Click(object sender, EventArgs e) { Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/issues/new?labels=enhancement"); }
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e) { this.WindowState = FormWindowState.Minimized; }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (WebClient wc = new WebClient())
             {
