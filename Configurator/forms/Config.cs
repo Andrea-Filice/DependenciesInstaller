@@ -44,28 +44,39 @@ namespace Configurator
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (WebClient wc = new WebClient())
+            try
             {
-                var json = wc.DownloadString("https://cdn-playepik.netlify.app/dependencies/dependencies.json");
-                JObject data = JObject.Parse(json);
-
-                string currentVersion = Application.ProductVersion;
-                string latestVersion = data["versionDependenciesInstaller"]?.ToString();
-
-                //CREATE VERION OBJECTS
-                Version latest = new Version(latestVersion);
-                Version current = new Version(currentVersion);
-
-                int result = current.CompareTo(latest);
-
-                if (result < 0)
+                using (WebClient wc = new WebClient())
                 {
-                    var message = MessageBox.Show("A new update is available! (v. " + latestVersion + "), Do you want to update it?", "Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if(message == DialogResult.Yes)
-                        Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/releases/latest");
+                    var json = wc.DownloadString("https://cdn-playepik.netlify.app/dependencies/dependencies.json");
+                    JObject data = JObject.Parse(json);
+
+                    string currentVersion = Application.ProductVersion;
+                    string latestVersion = data["versionDependenciesInstaller"]?.ToString();
+
+                    //CREATE VERION OBJECTS
+                    Version latest = new Version(latestVersion);
+                    Version current = new Version(currentVersion);
+
+                    int result = current.CompareTo(latest);
+
+                    if (result < 0)
+                    {
+                        var message = MessageBox.Show("A new update is available! (v. " + latestVersion + "), Do you want to update it?", "Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                        if (message == DialogResult.Yes)
+                            Process.Start("https://github.com/Andrea-Filice/DependenciesInstaller/releases/latest");
+                    }
+                    else
+                        MessageBox.Show("You have the latest version available.", "Updater", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
-                else
-                    MessageBox.Show("You have the latest version available.", "Updater", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            catch (WebException)
+            {
+                MessageBox.Show("Unable to check for Updates. Please check your internet connection and try again.", "Updater", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while checking for updates: " + ex.Message, "Updater", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
