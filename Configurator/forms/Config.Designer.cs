@@ -92,7 +92,7 @@ namespace Configurator
             this.buttonChangeFolder.Size = new System.Drawing.Size(146, 31);
             this.buttonChangeFolder.TabIndex = 2;
             this.buttonChangeFolder.Text = "Change";
-            this.toolTip.SetToolTip(this.buttonChangeFolder, "Change build Folder");
+            this.toolTip.SetToolTip(this.buttonChangeFolder, "Change Build Folder");
             this.buttonChangeFolder.UseMnemonic = false;
             this.buttonChangeFolder.UseVisualStyleBackColor = false;
             this.buttonChangeFolder.Click += new System.EventHandler(this.buttonChangeFolder_Click);
@@ -111,12 +111,13 @@ namespace Configurator
             // 
             this.infoLabel.Font = new System.Drawing.Font("Cal Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoLabel.ForeColor = System.Drawing.Color.Red;
-            this.infoLabel.Location = new System.Drawing.Point(78, 371);
+            this.infoLabel.Location = new System.Drawing.Point(78, 362);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(627, 70);
             this.infoLabel.TabIndex = 4;
-            this.infoLabel.Text = "Check the supported versions of Easy Anti-Cheat by going to “File” > “Options” an" +
-    "d select one (RECOMMENDED: The latest version is already selected by default).";
+            this.infoLabel.Text = "Check the supported versions of Easy Anti-Cheat by going to \"File\" > \"Options\" an" +
+    "d selecting one (RECOMMENDED: the latest version is already selected by default)" +
+    ".";
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buildButton
@@ -345,7 +346,7 @@ namespace Configurator
             // warningPB
             // 
             this.warningPB.Image = ((System.Drawing.Image)(resources.GetObject("warningPB.Image")));
-            this.warningPB.Location = new System.Drawing.Point(36, 385);
+            this.warningPB.Location = new System.Drawing.Point(36, 379);
             this.warningPB.Name = "warningPB";
             this.warningPB.Size = new System.Drawing.Size(36, 34);
             this.warningPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

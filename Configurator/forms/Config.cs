@@ -54,7 +54,7 @@ namespace Configurator
                     string currentVersion = Application.ProductVersion;
                     string latestVersion = data["versionDependenciesInstaller"]?.ToString();
 
-                    //CREATE VERION OBJECTS
+                    //CREATE VERSION OBJECTS
                     Version latest = new Version(latestVersion);
                     Version current = new Version(currentVersion);
 
