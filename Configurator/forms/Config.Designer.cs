@@ -115,9 +115,7 @@ namespace Configurator
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(627, 70);
             this.infoLabel.TabIndex = 4;
-            this.infoLabel.Text = "Check the supported versions of Easy Anti-Cheat by going to \"File\" > \"Options\" an" +
-    "d selecting one (RECOMMENDED: the latest version is already selected by default)" +
-    ".";
+            this.infoLabel.Text = "Check the supported versions of Easy Anti-Cheat by going to \"File\" > \"Options\" and selecting one (RECOMMENDED: the latest version is already selected by default).";
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buildButton
