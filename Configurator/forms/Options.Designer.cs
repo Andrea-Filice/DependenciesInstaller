@@ -82,8 +82,8 @@ namespace Configurator
             this.eacVersions.Font = new System.Drawing.Font("Cal Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eacVersions.FormattingEnabled = true;
             this.eacVersions.Items.AddRange(new object[] {
-            "v. Latest (October 2026, v2610.1.1)",
-            "v. September (v2609.1)"});
+            "v. Latest (November 2026, v2611)",
+            "v. October (v2610.1)"});
             this.eacVersions.Location = new System.Drawing.Point(12, 199);
             this.eacVersions.Name = "eacVersions";
             this.eacVersions.Size = new System.Drawing.Size(347, 26);
